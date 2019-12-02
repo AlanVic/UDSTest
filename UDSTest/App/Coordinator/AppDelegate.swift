@@ -21,6 +21,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         window?.rootViewController = initialViewController
         window?.makeKeyAndVisible()
+        
+        let _ = User
         return true
     }
  

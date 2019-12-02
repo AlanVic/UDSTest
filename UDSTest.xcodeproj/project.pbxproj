@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -17,7 +17,10 @@
 		924DE2DF239404A100F5D823 /* CustomTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924DE2DE239404A100F5D823 /* CustomTabBarController.swift */; };
 		92D8F2102394563F0004B569 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D8F20F2394563F0004B569 /* LoginViewController.swift */; };
 		92D8F213239456820004B569 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D8F212239456820004B569 /* LoginViewModel.swift */; };
-		92D8F21523945AFE0004B569 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D8F21423945AFE0004B569 /* ViewController.swift */; };
+		92D8F2192394A6460004B569 /* ConfigurableDao.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D8F2182394A6460004B569 /* ConfigurableDao.swift */; };
+		92D8F21B2394A6730004B569 /* CoreDao.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D8F21A2394A6730004B569 /* CoreDao.swift */; };
+		92D8F21D2394A6A80004B569 /* CoreStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D8F21C2394A6A80004B569 /* CoreStack.swift */; };
+		92D8F21F2394A6DF0004B569 /* NSManagedObject+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D8F21E2394A6DF0004B569 /* NSManagedObject+Extension.swift */; };
 		9484D91D55D3334773C0B940 /* Pods_UDSTest_UDSTestUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35A3D5458CA2B1D65AE14F51 /* Pods_UDSTest_UDSTestUITests.framework */; };
 		FD9ADD837D0B49584C91899A /* Pods_UDSTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B1B86EE677F8488EA6EFBFD /* Pods_UDSTest.framework */; };
 /* End PBXBuildFile section */
@@ -59,7 +62,10 @@
 		924DE2DE239404A100F5D823 /* CustomTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBarController.swift; sourceTree = "<group>"; };
 		92D8F20F2394563F0004B569 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		92D8F212239456820004B569 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
-		92D8F21423945AFE0004B569 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		92D8F2182394A6460004B569 /* ConfigurableDao.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigurableDao.swift; sourceTree = "<group>"; };
+		92D8F21A2394A6730004B569 /* CoreDao.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDao.swift; sourceTree = "<group>"; };
+		92D8F21C2394A6A80004B569 /* CoreStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreStack.swift; sourceTree = "<group>"; };
+		92D8F21E2394A6DF0004B569 /* NSManagedObject+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSManagedObject+Extension.swift"; sourceTree = "<group>"; };
 		94FDD08858CA38CF08B0D954 /* Pods-UDSTestTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UDSTestTests.release.xcconfig"; path = "Target Support Files/Pods-UDSTestTests/Pods-UDSTestTests.release.xcconfig"; sourceTree = "<group>"; };
 		9B1B86EE677F8488EA6EFBFD /* Pods_UDSTest.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UDSTest.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C1E6953B54371F7D6806B596 /* Pods-UDSTest-UDSTestUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UDSTest-UDSTestUITests.debug.xcconfig"; path = "Target Support Files/Pods-UDSTest-UDSTestUITests/Pods-UDSTest-UDSTestUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -105,7 +111,6 @@
 				8416E1F3610A0D998BC11F7D /* Pods-UDSTestTests.debug.xcconfig */,
 				94FDD08858CA38CF08B0D954 /* Pods-UDSTestTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -135,7 +140,7 @@
 			isa = PBXGroup;
 			children = (
 				924DE2DB239401CF00F5D823 /* App */,
-				92D8F21423945AFE0004B569 /* ViewController.swift */,
+				92D8F2162394A5EB0004B569 /* Persistence */,
 				924DE2B42393FE5300F5D823 /* Assets.xcassets */,
 				924DE2B62393FE5300F5D823 /* LaunchScreen.storyboard */,
 				924DE2B92393FE5300F5D823 /* Info.plist */,
@@ -211,6 +216,25 @@
 				92D8F212239456820004B569 /* LoginViewModel.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		92D8F2162394A5EB0004B569 /* Persistence */ = {
+			isa = PBXGroup;
+			children = (
+				92D8F2172394A61D0004B569 /* CoreDAO */,
+			);
+			path = Persistence;
+			sourceTree = "<group>";
+		};
+		92D8F2172394A61D0004B569 /* CoreDAO */ = {
+			isa = PBXGroup;
+			children = (
+				92D8F2182394A6460004B569 /* ConfigurableDao.swift */,
+				92D8F21A2394A6730004B569 /* CoreDao.swift */,
+				92D8F21C2394A6A80004B569 /* CoreStack.swift */,
+				92D8F21E2394A6DF0004B569 /* NSManagedObject+Extension.swift */,
+			);
+			path = CoreDAO;
 			sourceTree = "<group>";
 		};
 		9F6B8FEA74D7A3FB73C28D74 /* Frameworks */ = {
@@ -461,11 +485,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				92D8F21F2394A6DF0004B569 /* NSManagedObject+Extension.swift in Sources */,
 				92D8F2102394563F0004B569 /* LoginViewController.swift in Sources */,
+				92D8F21D2394A6A80004B569 /* CoreStack.swift in Sources */,
+				92D8F21B2394A6730004B569 /* CoreDao.swift in Sources */,
 				924DE2B32393FE5100F5D823 /* UDSTest.xcdatamodeld in Sources */,
 				924DE2DF239404A100F5D823 /* CustomTabBarController.swift in Sources */,
+				92D8F2192394A6460004B569 /* ConfigurableDao.swift in Sources */,
 				924DE2A92393FE5100F5D823 /* AppDelegate.swift in Sources */,
-				92D8F21523945AFE0004B569 /* ViewController.swift in Sources */,
 				92D8F213239456820004B569 /* LoginViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

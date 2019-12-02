@@ -19,7 +19,7 @@ class CustomTabBarController: UITabBarController {
         setupTabBar()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         checkLoggedUser()
     }
     

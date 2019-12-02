@@ -9,6 +9,8 @@ target 'UDSTest' do
 
 	pod 'IQKeyboardManagerSwift'
 	pod 'SwiftKeychainWrapper'
+  pod 'Firebase/Analytics'
+  pod 'Firebase/Auth'
 
   target 'UDSTestTests' do
     inherit! :search_paths

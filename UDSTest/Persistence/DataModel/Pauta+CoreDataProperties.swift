@@ -2,7 +2,7 @@
 //  Pauta+CoreDataProperties.swift
 //  
 //
-//  Created by Alan Victor Paulino de Oliveira on 01/12/19.
+//  Created by Alan Victor Paulino de Oliveira on 02/12/19.
 //
 //
 
@@ -16,9 +16,9 @@ extension Pauta {
         return NSFetchRequest<Pauta>(entityName: "Pauta")
     }
 
-    @NSManaged public var title: NSObject?
-    @NSManaged public var smallDescription: NSObject?
-    @NSManaged public var datails: NSObject?
+    @NSManaged public var title: String?
+    @NSManaged public var smallDescription: String?
+    @NSManaged public var details: String?
     @NSManaged public var author: User?
 
 }

@@ -2,7 +2,7 @@
 //  Pauta+CoreDataClass.swift
 //  
 //
-//  Created by Alan Victor Paulino de Oliveira on 01/12/19.
+//  Created by Alan Victor Paulino de Oliveira on 02/12/19.
 //
 //
 

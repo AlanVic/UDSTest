@@ -8,42 +8,37 @@
 
 import CoreData
 
-public class CoreDao<Element: NSManagedObject>: ConfigurableDao {
+public class CoreStack {
     
-    public var context: NSManagedObjectContext
+    let nameContainer: String!
     
-    init(with containerName: String) {
-        let coreStack = CoreStack(with: containerName)
-        context = coreStack.persistentContainer.viewContext
+    public init(with nameContainer: String) {
+        self.nameContainer = nameContainer
     }
     
-    public func new() -> Element {
-        return NSEntityDescription.insertNewObject(forEntityName: Element.className, into: context) as! Element
-    }
+    lazy var persistentContainer: NSPersistentContainer = {
+        let container = NSPersistentContainer(name: self.nameContainer)
+        
+        container.loadPersistentStores(completionHandler: { (_, error) in
+            if let err = error {
+                fatalError()
+            }
+        })
+        return container
+    }()
     
-    public func insert(object: Element) {
-        context.insert(object)
-        save()
-    }
-    
-    public func fetchAll() -> [Element] {
-        let request = NSFetchRequest<Element>(entityName: Element.className)
-        let result = try! context.fetch(request)
-        return result
-    }
-    
-    public func delete(object: Element) {
-        context.delete(object)
-        save()
-    }
-    
-    public func save() {
-        do {
+    public func saveContext() {
+        let context = persistentContainer.viewContext
+        
+        if context.hasChanges {
             do {
                 try context.save()
             } catch {
-                print(error)
+                fatalError()
             }
+            
         }
+        
     }
+    
 }

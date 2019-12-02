@@ -144,7 +144,6 @@
 				924DE2B42393FE5300F5D823 /* Assets.xcassets */,
 				924DE2B62393FE5300F5D823 /* LaunchScreen.storyboard */,
 				924DE2B92393FE5300F5D823 /* Info.plist */,
-				924DE2B12393FE5100F5D823 /* UDSTest.xcdatamodeld */,
 			);
 			path = UDSTest;
 			sourceTree = "<group>";
@@ -221,12 +220,13 @@
 		92D8F2162394A5EB0004B569 /* Persistence */ = {
 			isa = PBXGroup;
 			children = (
-				92D8F2172394A61D0004B569 /* CoreDAO */,
+				92D8F2202394A7830004B569 /* DataModel */,
+				92D8F2172394A61D0004B569 /* CoreDao */,
 			);
 			path = Persistence;
 			sourceTree = "<group>";
 		};
-		92D8F2172394A61D0004B569 /* CoreDAO */ = {
+		92D8F2172394A61D0004B569 /* CoreDao */ = {
 			isa = PBXGroup;
 			children = (
 				92D8F2182394A6460004B569 /* ConfigurableDao.swift */,
@@ -234,7 +234,15 @@
 				92D8F21C2394A6A80004B569 /* CoreStack.swift */,
 				92D8F21E2394A6DF0004B569 /* NSManagedObject+Extension.swift */,
 			);
-			path = CoreDAO;
+			path = CoreDao;
+			sourceTree = "<group>";
+		};
+		92D8F2202394A7830004B569 /* DataModel */ = {
+			isa = PBXGroup;
+			children = (
+				924DE2B12393FE5100F5D823 /* UDSTest.xcdatamodeld */,
+			);
+			path = DataModel;
 			sourceTree = "<group>";
 		};
 		9F6B8FEA74D7A3FB73C28D74 /* Frameworks */ = {

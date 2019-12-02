@@ -25,6 +25,7 @@
 		92D8F22E2394AD460004B569 /* Pauta+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D8F22A2394AD460004B569 /* Pauta+CoreDataProperties.swift */; };
 		92D8F22F2394AD460004B569 /* User+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D8F22B2394AD460004B569 /* User+CoreDataProperties.swift */; };
 		92D8F2302394AD460004B569 /* User+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D8F22C2394AD460004B569 /* User+CoreDataClass.swift */; };
+		92D8F23223957B500004B569 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 92D8F23123957B500004B569 /* GoogleService-Info.plist */; };
 		9484D91D55D3334773C0B940 /* Pods_UDSTest_UDSTestUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35A3D5458CA2B1D65AE14F51 /* Pods_UDSTest_UDSTestUITests.framework */; };
 		FD9ADD837D0B49584C91899A /* Pods_UDSTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B1B86EE677F8488EA6EFBFD /* Pods_UDSTest.framework */; };
 /* End PBXBuildFile section */
@@ -74,6 +75,7 @@
 		92D8F22A2394AD460004B569 /* Pauta+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Pauta+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		92D8F22B2394AD460004B569 /* User+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "User+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		92D8F22C2394AD460004B569 /* User+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "User+CoreDataClass.swift"; sourceTree = "<group>"; };
+		92D8F23123957B500004B569 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		94FDD08858CA38CF08B0D954 /* Pods-UDSTestTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UDSTestTests.release.xcconfig"; path = "Target Support Files/Pods-UDSTestTests/Pods-UDSTestTests.release.xcconfig"; sourceTree = "<group>"; };
 		9B1B86EE677F8488EA6EFBFD /* Pods_UDSTest.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UDSTest.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C1E6953B54371F7D6806B596 /* Pods-UDSTest-UDSTestUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UDSTest-UDSTestUITests.debug.xcconfig"; path = "Target Support Files/Pods-UDSTest-UDSTestUITests/Pods-UDSTest-UDSTestUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -152,6 +154,7 @@
 				924DE2B42393FE5300F5D823 /* Assets.xcassets */,
 				924DE2B62393FE5300F5D823 /* LaunchScreen.storyboard */,
 				924DE2B92393FE5300F5D823 /* Info.plist */,
+				92D8F23123957B500004B569 /* GoogleService-Info.plist */,
 			);
 			path = UDSTest;
 			sourceTree = "<group>";
@@ -378,6 +381,7 @@
 			files = (
 				924DE2B82393FE5300F5D823 /* LaunchScreen.storyboard in Resources */,
 				924DE2B52393FE5300F5D823 /* Assets.xcassets in Resources */,
+				92D8F23223957B500004B569 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

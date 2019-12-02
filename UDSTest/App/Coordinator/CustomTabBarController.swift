@@ -17,7 +17,16 @@ class CustomTabBarController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTabBar()
-        self.view.backgroundColor = .blue
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        checkLoggedUser()
+    }
+    
+    func checkLoggedUser() {
+        if !FireAccess.isLogged() {
+            self.present(LoginViewController(), animated: true, completion: nil)
+        }
     }
 
 }
@@ -25,8 +34,8 @@ class CustomTabBarController: UITabBarController {
 extension CustomTabBarController: ConfigurableTabBar {
     fileprivate func setupTabBar() {
         self.viewControllers = [
-            createNavigation(viewController: LoginViewController(), title: "Login", imageNamed: "profile-icon"),
-            createNavigation(viewController: LoginViewController(), title: "Login", imageNamed: "profile-icon")
+            createNavigation(viewController: PautasAbertasViewController(), title: "Login", imageNamed: "profile-icon"),
+            createNavigation(viewController: PautasAbertasViewController(), title: "Login", imageNamed: "profile-icon")
         ]
     }
     

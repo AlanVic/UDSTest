@@ -26,8 +26,11 @@ class LoginView: UIView, ConfigurableView {
     lazy var loginButton: UIButton = {
         let button = RoundButton(textButton: "Login")
         button.translatesAutoresizingMaskIntoConstraints = true
+        button.addTarget(self, action: #selector(tappedInLoginButton), for: .touchDown)
         return button
     }()
+    
+    var tapInLogin:(() -> Void)?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -61,5 +64,9 @@ class LoginView: UIView, ConfigurableView {
             loginButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -32),
             loginButton.heightAnchor.constraint(equalToConstant: 40)
         ])
+    }
+    
+    @objc func tappedInLoginButton(){
+        tapInLogin?()
     }
 }

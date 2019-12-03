@@ -14,6 +14,9 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        loginView.tapInLogin = {
+            print("Clicou no login")
+        }
     }
     
     override func loadView() {

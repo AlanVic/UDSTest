@@ -28,6 +28,9 @@
 		92D8F2362395830F0004B569 /* Pauta+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D8F2342395830F0004B569 /* Pauta+CoreDataProperties.swift */; };
 		92D8F23A239587F00004B569 /* FireAccess.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D8F239239587F00004B569 /* FireAccess.swift */; };
 		92D8F23E2395928F0004B569 /* PautasAbertasViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D8F23D2395928F0004B569 /* PautasAbertasViewController.swift */; };
+		92D8F2402396A37D0004B569 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D8F23F2396A37D0004B569 /* LoginView.swift */; };
+		92D8F2432396A5570004B569 /* ConfigurableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D8F2422396A5570004B569 /* ConfigurableView.swift */; };
+		92D8F2462396A6220004B569 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D8F2452396A6220004B569 /* UIView+Extension.swift */; };
 		9484D91D55D3334773C0B940 /* Pods_UDSTest_UDSTestUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35A3D5458CA2B1D65AE14F51 /* Pods_UDSTest_UDSTestUITests.framework */; };
 		FD9ADD837D0B49584C91899A /* Pods_UDSTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B1B86EE677F8488EA6EFBFD /* Pods_UDSTest.framework */; };
 /* End PBXBuildFile section */
@@ -80,6 +83,9 @@
 		92D8F2342395830F0004B569 /* Pauta+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Pauta+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		92D8F239239587F00004B569 /* FireAccess.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FireAccess.swift; sourceTree = "<group>"; };
 		92D8F23D2395928F0004B569 /* PautasAbertasViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PautasAbertasViewController.swift; sourceTree = "<group>"; };
+		92D8F23F2396A37D0004B569 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		92D8F2422396A5570004B569 /* ConfigurableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigurableView.swift; sourceTree = "<group>"; };
+		92D8F2452396A6220004B569 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		94FDD08858CA38CF08B0D954 /* Pods-UDSTestTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UDSTestTests.release.xcconfig"; path = "Target Support Files/Pods-UDSTestTests/Pods-UDSTestTests.release.xcconfig"; sourceTree = "<group>"; };
 		9B1B86EE677F8488EA6EFBFD /* Pods_UDSTest.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UDSTest.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C1E6953B54371F7D6806B596 /* Pods-UDSTest-UDSTestUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UDSTest-UDSTestUITests.debug.xcconfig"; path = "Target Support Files/Pods-UDSTest-UDSTestUITests/Pods-UDSTest-UDSTestUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -221,6 +227,7 @@
 			isa = PBXGroup;
 			children = (
 				92D8F20F2394563F0004B569 /* LoginViewController.swift */,
+				92D8F23F2396A37D0004B569 /* LoginView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -268,6 +275,8 @@
 		92D8F237239587AC0004B569 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				92D8F2442396A60A0004B569 /* Extensions */,
+				92D8F2412396A5460004B569 /* Protocol */,
 				92D8F238239587B90004B569 /* Firebase */,
 				92D8F2162394A5EB0004B569 /* Persistence */,
 			);
@@ -296,6 +305,22 @@
 				92D8F23D2395928F0004B569 /* PautasAbertasViewController.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		92D8F2412396A5460004B569 /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				92D8F2422396A5570004B569 /* ConfigurableView.swift */,
+			);
+			path = Protocol;
+			sourceTree = "<group>";
+		};
+		92D8F2442396A60A0004B569 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				92D8F2452396A6220004B569 /* UIView+Extension.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		9F6B8FEA74D7A3FB73C28D74 /* Frameworks */ = {
@@ -559,8 +584,11 @@
 				92D8F2192394A6460004B569 /* ConfigurableDao.swift in Sources */,
 				92D8F23E2395928F0004B569 /* PautasAbertasViewController.swift in Sources */,
 				924DE2A92393FE5100F5D823 /* AppDelegate.swift in Sources */,
+				92D8F2462396A6220004B569 /* UIView+Extension.swift in Sources */,
 				92D8F213239456820004B569 /* LoginViewModel.swift in Sources */,
+				92D8F2432396A5570004B569 /* ConfigurableView.swift in Sources */,
 				92D8F2362395830F0004B569 /* Pauta+CoreDataProperties.swift in Sources */,
+				92D8F2402396A37D0004B569 /* LoginView.swift in Sources */,
 				92D8F23A239587F00004B569 /* FireAccess.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

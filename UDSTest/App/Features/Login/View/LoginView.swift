@@ -10,8 +10,10 @@ import UIKit
 
 class LoginView: UIView, ConfigurableView {
     
-    let usernameTextField: UITextField = {
-        let textField = RoundTextField(placeHolder: "Username")
+    let loginViewModel = LoginViewModel()
+    
+    let emailTextField: UITextField = {
+        let textField = RoundTextField(placeHolder: "Email")
         textField.translatesAutoresizingMaskIntoConstraints = false
         return textField
     }()
@@ -26,11 +28,11 @@ class LoginView: UIView, ConfigurableView {
     lazy var loginButton: UIButton = {
         let button = RoundButton(textButton: "Login")
         button.translatesAutoresizingMaskIntoConstraints = true
-        button.addTarget(self, action: #selector(tappedInLoginButton), for: .touchDown)
+        button.addTarget(self, action: #selector(didTapInLoginButton), for: .touchDown)
         return button
     }()
     
-    var tapInLogin:(() -> Void)?
+    var didTapInLogin:((Bool) -> Void)?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -44,17 +46,17 @@ class LoginView: UIView, ConfigurableView {
     }
     
     func buildViewHierarchy() {
-        addSubviews([usernameTextField, passwordTextField, loginButton])
+        addSubviews([emailTextField, passwordTextField, loginButton])
     }
     
     func setupConstraints() {
         NSLayoutConstraint.activate([
-            usernameTextField.topAnchor.constraint(equalTo: topAnchor, constant: 128),
-            usernameTextField.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 32),
-            usernameTextField.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -32),
-            usernameTextField.heightAnchor.constraint(equalToConstant: 40),
+            emailTextField.topAnchor.constraint(equalTo: topAnchor, constant: 128),
+            emailTextField.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 32),
+            emailTextField.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -32),
+            emailTextField.heightAnchor.constraint(equalToConstant: 40),
             
-            passwordTextField.topAnchor.constraint(equalTo: usernameTextField.bottomAnchor, constant: 16),
+            passwordTextField.topAnchor.constraint(equalTo: emailTextField.bottomAnchor, constant: 16),
             passwordTextField.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 32),
             passwordTextField.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -32),
             passwordTextField.heightAnchor.constraint(equalToConstant: 40),
@@ -66,7 +68,13 @@ class LoginView: UIView, ConfigurableView {
         ])
     }
     
-    @objc func tappedInLoginButton(){
-        tapInLogin?()
+    @objc func didTapInLoginButton(){
+        let email = emailTextField.text
+        let password = passwordTextField.text
+        
+        loginViewModel.loginAuth(withEmail: email, andPassword: password) { (result) in
+            self.didTapInLogin?(result)
+        }
+        
     }
 }

@@ -14,13 +14,21 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        loginView.tapInLogin = {
-            print("Clicou no login")
-        }
+        loginView.didTapInLogin = didTapInLogin(result:)
     }
     
     override func loadView() {
         self.view = loginView
+    }
+    
+    func didTapInLogin(result: Bool) -> Void {
+        switch result {
+        case true:
+            print("deu certo merda")
+        case false:
+            print("nem deu")
+        }
+        
     }
 
 }

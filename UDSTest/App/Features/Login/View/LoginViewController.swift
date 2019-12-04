@@ -12,6 +12,15 @@ class LoginViewController: UIViewController {
 
     let loginView = LoginView()
     
+    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
+        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+        self.modalPresentationStyle = .fullScreen
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         loginView.didTapInLogin = didTapInLogin(result:)
@@ -24,7 +33,7 @@ class LoginViewController: UIViewController {
     func didTapInLogin(result: Bool) -> Void {
         switch result {
         case true:
-            print("deu certo merda")
+            self.dismiss(animated: true, completion: nil)
         case false:
             print("nem deu")
         }

@@ -33,6 +33,10 @@
 		92D8F2462396A6220004B569 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D8F2452396A6220004B569 /* UIView+Extension.swift */; };
 		92D8F2492397109E0004B569 /* RoundTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D8F2482397109D0004B569 /* RoundTextField.swift */; };
 		92D8F24B239716980004B569 /* RoundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D8F24A239716980004B569 /* RoundButton.swift */; };
+		92D8F24F2397DB6D0004B569 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D8F24E2397DB6C0004B569 /* SettingsViewController.swift */; };
+		92D8F2512397DB800004B569 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D8F2502397DB800004B569 /* SettingsView.swift */; };
+		92D8F2532397DC4A0004B569 /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D8F2522397DC4A0004B569 /* SettingsViewModel.swift */; };
+		92D8F2552397F7B10004B569 /* UIAlertController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D8F2542397F7B10004B569 /* UIAlertController+Extension.swift */; };
 		9484D91D55D3334773C0B940 /* Pods_UDSTest_UDSTestUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35A3D5458CA2B1D65AE14F51 /* Pods_UDSTest_UDSTestUITests.framework */; };
 		FD9ADD837D0B49584C91899A /* Pods_UDSTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B1B86EE677F8488EA6EFBFD /* Pods_UDSTest.framework */; };
 /* End PBXBuildFile section */
@@ -90,6 +94,10 @@
 		92D8F2452396A6220004B569 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		92D8F2482397109D0004B569 /* RoundTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundTextField.swift; sourceTree = "<group>"; };
 		92D8F24A239716980004B569 /* RoundButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundButton.swift; sourceTree = "<group>"; };
+		92D8F24E2397DB6C0004B569 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		92D8F2502397DB800004B569 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		92D8F2522397DC4A0004B569 /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
+		92D8F2542397F7B10004B569 /* UIAlertController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIAlertController+Extension.swift"; sourceTree = "<group>"; };
 		94FDD08858CA38CF08B0D954 /* Pods-UDSTestTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UDSTestTests.release.xcconfig"; path = "Target Support Files/Pods-UDSTestTests/Pods-UDSTestTests.release.xcconfig"; sourceTree = "<group>"; };
 		9B1B86EE677F8488EA6EFBFD /* Pods_UDSTest.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UDSTest.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C1E6953B54371F7D6806B596 /* Pods-UDSTest-UDSTestUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UDSTest-UDSTestUITests.debug.xcconfig"; path = "Target Support Files/Pods-UDSTest-UDSTestUITests/Pods-UDSTest-UDSTestUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -212,6 +220,7 @@
 		924DE2DD239401E800F5D823 /* Features */ = {
 			isa = PBXGroup;
 			children = (
+				92D8F24C2397DAD60004B569 /* Settings */,
 				92D8F23B239592580004B569 /* PautasAbertas */,
 				92D8F20D239456010004B569 /* Login */,
 			);
@@ -324,6 +333,7 @@
 			isa = PBXGroup;
 			children = (
 				92D8F2452396A6220004B569 /* UIView+Extension.swift */,
+				92D8F2542397F7B10004B569 /* UIAlertController+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -335,6 +345,16 @@
 				92D8F24A239716980004B569 /* RoundButton.swift */,
 			);
 			path = CustomViews;
+			sourceTree = "<group>";
+		};
+		92D8F24C2397DAD60004B569 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				92D8F24E2397DB6C0004B569 /* SettingsViewController.swift */,
+				92D8F2502397DB800004B569 /* SettingsView.swift */,
+				92D8F2522397DC4A0004B569 /* SettingsViewModel.swift */,
+			);
+			path = Settings;
 			sourceTree = "<group>";
 		};
 		9F6B8FEA74D7A3FB73C28D74 /* Frameworks */ = {
@@ -587,7 +607,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				92D8F21F2394A6DF0004B569 /* NSManagedObject+Extension.swift in Sources */,
+				92D8F2532397DC4A0004B569 /* SettingsViewModel.swift in Sources */,
 				92D8F2102394563F0004B569 /* LoginViewController.swift in Sources */,
+				92D8F24F2397DB6D0004B569 /* SettingsViewController.swift in Sources */,
 				92D8F22F2394AD460004B569 /* User+CoreDataProperties.swift in Sources */,
 				92D8F2302394AD460004B569 /* User+CoreDataClass.swift in Sources */,
 				92D8F21D2394A6A80004B569 /* CoreStack.swift in Sources */,
@@ -602,10 +624,12 @@
 				92D8F2492397109E0004B569 /* RoundTextField.swift in Sources */,
 				92D8F213239456820004B569 /* LoginViewModel.swift in Sources */,
 				92D8F2432396A5570004B569 /* ConfigurableView.swift in Sources */,
+				92D8F2552397F7B10004B569 /* UIAlertController+Extension.swift in Sources */,
 				92D8F24B239716980004B569 /* RoundButton.swift in Sources */,
 				92D8F2362395830F0004B569 /* Pauta+CoreDataProperties.swift in Sources */,
 				92D8F2402396A37D0004B569 /* LoginView.swift in Sources */,
 				92D8F23A239587F00004B569 /* FireAccess.swift in Sources */,
+				92D8F2512397DB800004B569 /* SettingsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

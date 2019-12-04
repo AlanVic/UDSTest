@@ -35,7 +35,8 @@ extension CustomTabBarController: ConfigurableTabBar {
     fileprivate func setupTabBar() {
         self.viewControllers = [
             createNavigation(viewController: PautasAbertasViewController(), title: "Login", imageNamed: "profile-icon"),
-            createNavigation(viewController: PautasAbertasViewController(), title: "Login", imageNamed: "profile-icon")
+            createNavigation(viewController: PautasAbertasViewController(), title: "Login", imageNamed: "profile-icon"),
+            createNavigation(viewController: SettingsViewController(), title: "Settings", imageNamed: "profile-icon")
         ]
     }
     

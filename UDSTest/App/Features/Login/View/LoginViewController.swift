@@ -41,7 +41,7 @@ class LoginViewController: UIViewController {
     }
     
     func didTapInSignUp() {
-        //present view controller
+        present(RegisterViewController(), animated: true, completion: nil)
     }
 
 }

@@ -37,6 +37,7 @@
 		92D8F2512397DB800004B569 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D8F2502397DB800004B569 /* SettingsView.swift */; };
 		92D8F2532397DC4A0004B569 /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D8F2522397DC4A0004B569 /* SettingsViewModel.swift */; };
 		92D8F2552397F7B10004B569 /* UIAlertController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D8F2542397F7B10004B569 /* UIAlertController+Extension.swift */; };
+		92D8F25823994F1E0004B569 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D8F25723994F1E0004B569 /* RegisterViewController.swift */; };
 		9484D91D55D3334773C0B940 /* Pods_UDSTest_UDSTestUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35A3D5458CA2B1D65AE14F51 /* Pods_UDSTest_UDSTestUITests.framework */; };
 		FD9ADD837D0B49584C91899A /* Pods_UDSTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B1B86EE677F8488EA6EFBFD /* Pods_UDSTest.framework */; };
 /* End PBXBuildFile section */
@@ -98,6 +99,7 @@
 		92D8F2502397DB800004B569 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		92D8F2522397DC4A0004B569 /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
 		92D8F2542397F7B10004B569 /* UIAlertController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIAlertController+Extension.swift"; sourceTree = "<group>"; };
+		92D8F25723994F1E0004B569 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		94FDD08858CA38CF08B0D954 /* Pods-UDSTestTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UDSTestTests.release.xcconfig"; path = "Target Support Files/Pods-UDSTestTests/Pods-UDSTestTests.release.xcconfig"; sourceTree = "<group>"; };
 		9B1B86EE677F8488EA6EFBFD /* Pods_UDSTest.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UDSTest.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C1E6953B54371F7D6806B596 /* Pods-UDSTest-UDSTestUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UDSTest-UDSTestUITests.debug.xcconfig"; path = "Target Support Files/Pods-UDSTest-UDSTestUITests/Pods-UDSTest-UDSTestUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -222,6 +224,7 @@
 			children = (
 				92D8F24C2397DAD60004B569 /* Settings */,
 				92D8F23B239592580004B569 /* PautasAbertas */,
+				92D8F25623994EE60004B569 /* Register */,
 				92D8F20D239456010004B569 /* Login */,
 			);
 			path = Features;
@@ -355,6 +358,14 @@
 				92D8F2522397DC4A0004B569 /* SettingsViewModel.swift */,
 			);
 			path = Settings;
+			sourceTree = "<group>";
+		};
+		92D8F25623994EE60004B569 /* Register */ = {
+			isa = PBXGroup;
+			children = (
+				92D8F25723994F1E0004B569 /* RegisterViewController.swift */,
+			);
+			path = Register;
 			sourceTree = "<group>";
 		};
 		9F6B8FEA74D7A3FB73C28D74 /* Frameworks */ = {
@@ -622,6 +633,7 @@
 				924DE2A92393FE5100F5D823 /* AppDelegate.swift in Sources */,
 				92D8F2462396A6220004B569 /* UIView+Extension.swift in Sources */,
 				92D8F2492397109E0004B569 /* RoundTextField.swift in Sources */,
+				92D8F25823994F1E0004B569 /* RegisterViewController.swift in Sources */,
 				92D8F213239456820004B569 /* LoginViewModel.swift in Sources */,
 				92D8F2432396A5570004B569 /* ConfigurableView.swift in Sources */,
 				92D8F2552397F7B10004B569 /* UIAlertController+Extension.swift in Sources */,

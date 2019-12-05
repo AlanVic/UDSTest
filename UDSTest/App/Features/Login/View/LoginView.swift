@@ -32,7 +32,17 @@ class LoginView: UIView, ConfigurableView {
         return button
     }()
     
+    lazy var buttonSignUp: UIButton = {
+        let button = UIButton(type: .system)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.setTitle("SingUp", for: .normal)
+//        button.setTitleColor(.blue, for: .application)
+        button.addTarget(self, action: #selector(didTapInSignUpButton), for: .touchDown)
+        return button
+    }()
+    
     var didTapInLogin:((Bool) -> Void)?
+    var didTapInSignUp:(() -> Void)?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -46,7 +56,7 @@ class LoginView: UIView, ConfigurableView {
     }
     
     func buildViewHierarchy() {
-        addSubviews([emailTextField, passwordTextField, loginButton])
+        addSubviews([emailTextField, passwordTextField, loginButton, buttonSignUp])
     }
     
     func setupConstraints() {
@@ -64,7 +74,10 @@ class LoginView: UIView, ConfigurableView {
             loginButton.topAnchor.constraint(equalTo: passwordTextField.bottomAnchor, constant: 16),
             loginButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 32),
             loginButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -32),
-            loginButton.heightAnchor.constraint(equalToConstant: 40)
+            loginButton.heightAnchor.constraint(equalToConstant: 40),
+            
+            buttonSignUp.topAnchor.constraint(equalTo: loginButton.bottomAnchor, constant: 16),
+            buttonSignUp.centerXAnchor.constraint(equalTo: centerXAnchor)
         ])
     }
     
@@ -75,6 +88,9 @@ class LoginView: UIView, ConfigurableView {
         loginViewModel.loginAuth(withEmail: email, andPassword: password) { (result) in
             self.didTapInLogin?(result)
         }
-        
+    }
+    
+    @objc func didTapInSignUpButton() {
+        didTapInSignUp?()
     }
 }

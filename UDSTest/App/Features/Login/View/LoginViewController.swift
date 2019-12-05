@@ -24,6 +24,7 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         loginView.didTapInLogin = didTapInLogin(result:)
+        loginView.didTapInSignUp = didTapInSignUp
     }
     
     override func loadView() {
@@ -37,7 +38,10 @@ class LoginViewController: UIViewController {
         case false:
             print("nem deu")
         }
-        
+    }
+    
+    func didTapInSignUp() {
+        //present view controller
     }
 
 }

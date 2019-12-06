@@ -16,6 +16,11 @@
 		924DE2CE2393FE5400F5D823 /* UDSTestUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924DE2CD2393FE5400F5D823 /* UDSTestUITests.swift */; };
 		924DE2DF239404A100F5D823 /* CustomTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924DE2DE239404A100F5D823 /* CustomTabBarController.swift */; };
 		9282463D2399A2BE008086C4 /* RegisterVIewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9282463C2399A2BE008086C4 /* RegisterVIewModel.swift */; };
+		9282463F239A7EC2008086C4 /* PautasAbertasViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9282463E239A7EC2008086C4 /* PautasAbertasViewModel.swift */; };
+		92824641239A7F04008086C4 /* PautasAbertasView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92824640239A7F04008086C4 /* PautasAbertasView.swift */; };
+		92824644239A8041008086C4 /* Pautas.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92824643239A8041008086C4 /* Pautas.swift */; };
+		92824647239A973B008086C4 /* AddNewPautaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92824646239A973B008086C4 /* AddNewPautaViewController.swift */; };
+		92824649239A9754008086C4 /* AddNewPautaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92824648239A9754008086C4 /* AddNewPautaView.swift */; };
 		92D8F2102394563F0004B569 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D8F20F2394563F0004B569 /* LoginViewController.swift */; };
 		92D8F213239456820004B569 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D8F212239456820004B569 /* LoginViewModel.swift */; };
 		92D8F2192394A6460004B569 /* ConfigurableDao.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D8F2182394A6460004B569 /* ConfigurableDao.swift */; };
@@ -80,6 +85,11 @@
 		924DE2CF2393FE5400F5D823 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		924DE2DE239404A100F5D823 /* CustomTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBarController.swift; sourceTree = "<group>"; };
 		9282463C2399A2BE008086C4 /* RegisterVIewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterVIewModel.swift; sourceTree = "<group>"; };
+		9282463E239A7EC2008086C4 /* PautasAbertasViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PautasAbertasViewModel.swift; sourceTree = "<group>"; };
+		92824640239A7F04008086C4 /* PautasAbertasView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PautasAbertasView.swift; sourceTree = "<group>"; };
+		92824643239A8041008086C4 /* Pautas.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pautas.swift; sourceTree = "<group>"; };
+		92824646239A973B008086C4 /* AddNewPautaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewPautaViewController.swift; sourceTree = "<group>"; };
+		92824648239A9754008086C4 /* AddNewPautaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewPautaView.swift; sourceTree = "<group>"; };
 		92D8F20F2394563F0004B569 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		92D8F212239456820004B569 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		92D8F2182394A6460004B569 /* ConfigurableDao.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigurableDao.swift; sourceTree = "<group>"; };
@@ -226,12 +236,30 @@
 		924DE2DD239401E800F5D823 /* Features */ = {
 			isa = PBXGroup;
 			children = (
+				92824645239A9718008086C4 /* AddNewPauta */,
 				92D8F24C2397DAD60004B569 /* Settings */,
 				92D8F23B239592580004B569 /* PautasAbertas */,
 				92D8F25623994EE60004B569 /* Register */,
 				92D8F20D239456010004B569 /* Login */,
 			);
 			path = Features;
+			sourceTree = "<group>";
+		};
+		92824642239A802F008086C4 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				92824643239A8041008086C4 /* Pautas.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		92824645239A9718008086C4 /* AddNewPauta */ = {
+			isa = PBXGroup;
+			children = (
+				92824646239A973B008086C4 /* AddNewPautaViewController.swift */,
+				92824648239A9754008086C4 /* AddNewPautaView.swift */,
+			);
+			path = AddNewPauta;
 			sourceTree = "<group>";
 		};
 		92D8F20D239456010004B569 /* Login */ = {
@@ -295,6 +323,7 @@
 		92D8F237239587AC0004B569 /* ReusableLayers */ = {
 			isa = PBXGroup;
 			children = (
+				92824642239A802F008086C4 /* Models */,
 				92D8F247239710220004B569 /* CustomViews */,
 				92D8F2442396A60A0004B569 /* Extensions */,
 				92D8F2412396A5460004B569 /* Protocol */,
@@ -316,6 +345,7 @@
 			isa = PBXGroup;
 			children = (
 				92D8F23C239592700004B569 /* View */,
+				9282463E239A7EC2008086C4 /* PautasAbertasViewModel.swift */,
 			);
 			path = PautasAbertas;
 			sourceTree = "<group>";
@@ -324,6 +354,7 @@
 			isa = PBXGroup;
 			children = (
 				92D8F23D2395928F0004B569 /* PautasAbertasViewController.swift */,
+				92824640239A7F04008086C4 /* PautasAbertasView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -628,27 +659,32 @@
 				92D8F2102394563F0004B569 /* LoginViewController.swift in Sources */,
 				92D8F24F2397DB6D0004B569 /* SettingsViewController.swift in Sources */,
 				92D8F22F2394AD460004B569 /* User+CoreDataProperties.swift in Sources */,
+				92824647239A973B008086C4 /* AddNewPautaViewController.swift in Sources */,
 				92D8F2302394AD460004B569 /* User+CoreDataClass.swift in Sources */,
 				92D8F21D2394A6A80004B569 /* CoreStack.swift in Sources */,
 				92D8F21B2394A6730004B569 /* CoreDao.swift in Sources */,
 				924DE2B32393FE5100F5D823 /* UDSTest.xcdatamodeld in Sources */,
 				92D8F2352395830F0004B569 /* Pauta+CoreDataClass.swift in Sources */,
 				92D8F25A23994FBA0004B569 /* RegisterView.swift in Sources */,
+				9282463F239A7EC2008086C4 /* PautasAbertasViewModel.swift in Sources */,
 				924DE2DF239404A100F5D823 /* CustomTabBarController.swift in Sources */,
 				92D8F2192394A6460004B569 /* ConfigurableDao.swift in Sources */,
 				92D8F23E2395928F0004B569 /* PautasAbertasViewController.swift in Sources */,
 				924DE2A92393FE5100F5D823 /* AppDelegate.swift in Sources */,
 				9282463D2399A2BE008086C4 /* RegisterVIewModel.swift in Sources */,
+				92824644239A8041008086C4 /* Pautas.swift in Sources */,
 				92D8F2462396A6220004B569 /* UIView+Extension.swift in Sources */,
 				92D8F2492397109E0004B569 /* RoundTextField.swift in Sources */,
 				92D8F25823994F1E0004B569 /* RegisterViewController.swift in Sources */,
 				92D8F213239456820004B569 /* LoginViewModel.swift in Sources */,
 				92D8F2432396A5570004B569 /* ConfigurableView.swift in Sources */,
 				92D8F2552397F7B10004B569 /* UIAlertController+Extension.swift in Sources */,
+				92824649239A9754008086C4 /* AddNewPautaView.swift in Sources */,
 				92D8F24B239716980004B569 /* RoundButton.swift in Sources */,
 				92D8F2362395830F0004B569 /* Pauta+CoreDataProperties.swift in Sources */,
 				92D8F2402396A37D0004B569 /* LoginView.swift in Sources */,
 				92D8F23A239587F00004B569 /* FireAccess.swift in Sources */,
+				92824641239A7F04008086C4 /* PautasAbertasView.swift in Sources */,
 				92D8F2512397DB800004B569 /* SettingsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

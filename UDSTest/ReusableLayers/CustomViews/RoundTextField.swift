@@ -10,7 +10,7 @@ import UIKit
 
 class RoundTextField: UITextField {
     
-    var height: CGFloat?
+    var cornerRadius: CGFloat?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -21,10 +21,10 @@ class RoundTextField: UITextField {
         self.attributedPlaceholder = NSAttributedString(string: placeHolder, attributes: [:])
     }
     
-//    convenience init(placeHolder: String, height: CGFloat) {
-//        self.init(placeHolder: placeHolder)
-//        self.height = height
-//    }
+    convenience init(placeHolder: String, cornerRadius: CGFloat) {
+        self.init(placeHolder: placeHolder)
+        self.cornerRadius = cornerRadius
+    }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -36,7 +36,7 @@ class RoundTextField: UITextField {
     }
     
     func didSetupLayout(){
-        self.layer.cornerRadius = self.frame.height / 2
+        self.layer.cornerRadius = cornerRadius != nil ? cornerRadius! : self.frame.height / 2
         self.layer.borderWidth = 2
         self.layer.borderColor = UIColor.blue.cgColor
         self.layer.sublayerTransform = CATransform3DMakeTranslation(8, 0, 0)

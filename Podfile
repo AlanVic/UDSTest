@@ -11,6 +11,9 @@ target 'UDSTest' do
 	pod 'SwiftKeychainWrapper'
   pod 'Firebase/Analytics'
   pod 'Firebase/Auth'
+  pod 'Firebase/Core'
+  pod 'Firebase/Firestore'
+  pod 'FirebaseFirestoreSwift'
 
   target 'UDSTestTests' do
     inherit! :search_paths

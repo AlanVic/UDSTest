@@ -9,6 +9,16 @@
 import UIKit
 
 class RoundButton: UIButton {
+    
+    override var isEnabled: Bool {
+        didSet{
+            if self.isEnabled == false {
+                self.alpha = 0.5
+            } else {
+                self.alpha = 1
+            }
+        }
+    }
 
     override init(frame: CGRect) {
         super.init(frame: .zero)

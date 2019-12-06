@@ -1,0 +1,55 @@
+//
+//  AddNewPautaViewModel.swift
+//  UDSTest
+//
+//  Created by Alan Victor Paulino de Oliveira on 06/12/19.
+//  Copyright © 2019 Alan Victor Paulino de Oliveira. All rights reserved.
+//
+
+import Foundation
+import Firebase
+
+class AddNewPautaViewModel {
+    private var editableFields: [Editable]
+    
+    private var docRef: CollectionReference!
+    
+    private var buttonEnabled = false {
+        didSet{
+            enableButton?(buttonEnabled)
+        }
+    }
+    
+    var enableButton: ((Bool) -> Void)?
+    
+    init(withEditableFields editableFields: [Editable]){
+        docRef = Firestore.firestore().collection("Pautas")
+        self.editableFields = editableFields
+        
+        editableFields.forEach {
+            $0.didChanged = didChanged
+        }
+    }
+    
+    func didChanged() {
+        let allHasText = editableFields.allSatisfy { (editable) -> Bool in
+            return editable.currentText != nil && editable.currentText != ""
+        }
+        
+        buttonEnabled = allHasText
+        print(allHasText)
+    }
+    
+    func createNewPauta(withTitle title: String,
+                        andShortDescription shortDescription: String,
+                        andFullDescription description: String) {
+        let pauta = Pauta(title: title, shortDescription: shortDescription, description: description)
+        docRef.addDocument(data: pauta.dictionary) { (error) in
+            if error != nil {
+                print("oh louco deu erro")
+            } else {
+                print("Salvo com sucesso")
+            }
+        }
+    }
+}

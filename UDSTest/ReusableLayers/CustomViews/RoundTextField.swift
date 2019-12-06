@@ -8,13 +8,19 @@
 
 import UIKit
 
-class RoundTextField: UITextField {
+class RoundTextField: UITextField, Editable {
+    var currentText: String? {
+        return text
+    }
+    
+    var didChanged: (() -> Void)?
     
     var cornerRadius: CGFloat?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.translatesAutoresizingMaskIntoConstraints = false
+        self.addTarget(self, action: #selector(textChanged), for: .allEditingEvents)
     }
     
     convenience init(placeHolder: String) {
@@ -34,6 +40,10 @@ class RoundTextField: UITextField {
     override func layoutSubviews() {
        super.layoutSubviews()
        didSetupLayout()
+    }
+    
+    @objc func textChanged() {
+        didChanged?()
     }
     
     func didSetupLayout(){

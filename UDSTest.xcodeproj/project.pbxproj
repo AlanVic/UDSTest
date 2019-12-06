@@ -18,10 +18,12 @@
 		9282463D2399A2BE008086C4 /* RegisterVIewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9282463C2399A2BE008086C4 /* RegisterVIewModel.swift */; };
 		9282463F239A7EC2008086C4 /* PautasAbertasViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9282463E239A7EC2008086C4 /* PautasAbertasViewModel.swift */; };
 		92824641239A7F04008086C4 /* PautasAbertasView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92824640239A7F04008086C4 /* PautasAbertasView.swift */; };
-		92824644239A8041008086C4 /* Pautas.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92824643239A8041008086C4 /* Pautas.swift */; };
+		92824644239A8041008086C4 /* Pauta.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92824643239A8041008086C4 /* Pauta.swift */; };
 		92824647239A973B008086C4 /* AddNewPautaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92824646239A973B008086C4 /* AddNewPautaViewController.swift */; };
 		92824649239A9754008086C4 /* AddNewPautaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92824648239A9754008086C4 /* AddNewPautaView.swift */; };
 		9282464B239AA0F0008086C4 /* RoundTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9282464A239AA0F0008086C4 /* RoundTextView.swift */; };
+		9282464D239AAC47008086C4 /* AddNewPautaViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9282464C239AAC47008086C4 /* AddNewPautaViewModel.swift */; };
+		9282464F239AC1DA008086C4 /* Editable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9282464E239AC1DA008086C4 /* Editable.swift */; };
 		92D8F2102394563F0004B569 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D8F20F2394563F0004B569 /* LoginViewController.swift */; };
 		92D8F213239456820004B569 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D8F212239456820004B569 /* LoginViewModel.swift */; };
 		92D8F2192394A6460004B569 /* ConfigurableDao.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D8F2182394A6460004B569 /* ConfigurableDao.swift */; };
@@ -88,10 +90,12 @@
 		9282463C2399A2BE008086C4 /* RegisterVIewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterVIewModel.swift; sourceTree = "<group>"; };
 		9282463E239A7EC2008086C4 /* PautasAbertasViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PautasAbertasViewModel.swift; sourceTree = "<group>"; };
 		92824640239A7F04008086C4 /* PautasAbertasView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PautasAbertasView.swift; sourceTree = "<group>"; };
-		92824643239A8041008086C4 /* Pautas.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pautas.swift; sourceTree = "<group>"; };
+		92824643239A8041008086C4 /* Pauta.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pauta.swift; sourceTree = "<group>"; };
 		92824646239A973B008086C4 /* AddNewPautaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewPautaViewController.swift; sourceTree = "<group>"; };
 		92824648239A9754008086C4 /* AddNewPautaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewPautaView.swift; sourceTree = "<group>"; };
 		9282464A239AA0F0008086C4 /* RoundTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundTextView.swift; sourceTree = "<group>"; };
+		9282464C239AAC47008086C4 /* AddNewPautaViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewPautaViewModel.swift; sourceTree = "<group>"; };
+		9282464E239AC1DA008086C4 /* Editable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Editable.swift; sourceTree = "<group>"; };
 		92D8F20F2394563F0004B569 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		92D8F212239456820004B569 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		92D8F2182394A6460004B569 /* ConfigurableDao.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigurableDao.swift; sourceTree = "<group>"; };
@@ -250,7 +254,7 @@
 		92824642239A802F008086C4 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				92824643239A8041008086C4 /* Pautas.swift */,
+				92824643239A8041008086C4 /* Pauta.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -260,6 +264,7 @@
 			children = (
 				92824646239A973B008086C4 /* AddNewPautaViewController.swift */,
 				92824648239A9754008086C4 /* AddNewPautaView.swift */,
+				9282464C239AAC47008086C4 /* AddNewPautaViewModel.swift */,
 			);
 			path = AddNewPauta;
 			sourceTree = "<group>";
@@ -365,6 +370,7 @@
 			isa = PBXGroup;
 			children = (
 				92D8F2422396A5570004B569 /* ConfigurableView.swift */,
+				9282464E239AC1DA008086C4 /* Editable.swift */,
 			);
 			path = Protocol;
 			sourceTree = "<group>";
@@ -382,8 +388,8 @@
 			isa = PBXGroup;
 			children = (
 				92D8F2482397109D0004B569 /* RoundTextField.swift */,
-				92D8F24A239716980004B569 /* RoundButton.swift */,
 				9282464A239AA0F0008086C4 /* RoundTextView.swift */,
+				92D8F24A239716980004B569 /* RoundButton.swift */,
 			);
 			path = CustomViews;
 			sourceTree = "<group>";
@@ -657,6 +663,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9282464F239AC1DA008086C4 /* Editable.swift in Sources */,
 				92D8F21F2394A6DF0004B569 /* NSManagedObject+Extension.swift in Sources */,
 				92D8F2532397DC4A0004B569 /* SettingsViewModel.swift in Sources */,
 				9282464B239AA0F0008086C4 /* RoundTextView.swift in Sources */,
@@ -676,7 +683,8 @@
 				92D8F23E2395928F0004B569 /* PautasAbertasViewController.swift in Sources */,
 				924DE2A92393FE5100F5D823 /* AppDelegate.swift in Sources */,
 				9282463D2399A2BE008086C4 /* RegisterVIewModel.swift in Sources */,
-				92824644239A8041008086C4 /* Pautas.swift in Sources */,
+				9282464D239AAC47008086C4 /* AddNewPautaViewModel.swift in Sources */,
+				92824644239A8041008086C4 /* Pauta.swift in Sources */,
 				92D8F2462396A6220004B569 /* UIView+Extension.swift in Sources */,
 				92D8F2492397109E0004B569 /* RoundTextField.swift in Sources */,
 				92D8F25823994F1E0004B569 /* RegisterViewController.swift in Sources */,

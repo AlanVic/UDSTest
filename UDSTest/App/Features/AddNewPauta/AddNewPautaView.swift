@@ -53,6 +53,14 @@ class AddNewPautaView: UIView, ConfigurableView {
         return label
     }()
     
+    lazy var doneButton: RoundButton = {
+        let button = RoundButton(textButton: "Criar")
+        button.addTarget(self, action: #selector(didTapDoneButton), for: .touchDown)
+        button.isEnabled = false
+        return button
+    }()
+    
+    lazy var viewModel = AddNewPautaViewModel(withEditableFields: [titleTf, breveDescricaoTf, detailsTv])
     
 
     override init(frame: CGRect) {
@@ -60,10 +68,19 @@ class AddNewPautaView: UIView, ConfigurableView {
         backgroundColor = .white
         buildViewHierarchy()
         setupConstraints()
+        viewModel.enableButton = buttonResponsable
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    func buttonResponsable(buttonEnabled: Bool) {
+        doneButton.isEnabled = buttonEnabled
+    }
+    
+    @objc func didTapDoneButton() {
+        viewModel.createNewPauta(withTitle: "Alan", andShortDescription: "Short", andFullDescription: "Full Description")
     }
     
     func buildViewHierarchy() {
@@ -73,7 +90,9 @@ class AddNewPautaView: UIView, ConfigurableView {
                      breveDescricaoTf,
                      detailsLabel,
                      detailsTv,
-                     authorLabel])
+                     authorLabel,
+                     doneButton
+                ])
     }
     
     func setupConstraints() {
@@ -102,7 +121,12 @@ class AddNewPautaView: UIView, ConfigurableView {
             detailsTv.topAnchor.constraint(equalTo: detailsLabel.bottomAnchor, constant: 4),
             detailsTv.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
             detailsTv.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
-            detailsTv.heightAnchor.constraint(equalToConstant: 300)
+            detailsTv.heightAnchor.constraint(equalToConstant: 300),
+            
+            doneButton.topAnchor.constraint(equalTo: detailsTv.bottomAnchor, constant: 8),
+            doneButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
+            doneButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
+            doneButton.heightAnchor.constraint(equalToConstant: 40)
         ])
     }
 

@@ -10,10 +10,10 @@ import Foundation
 import CoreData
 
 
-extension Pauta {
+extension PautaCoreData {
 
-    @nonobjc public class func fetchRequest() -> NSFetchRequest<Pauta> {
-        return NSFetchRequest<Pauta>(entityName: "Pauta")
+    @nonobjc public class func fetchRequest() -> NSFetchRequest<PautaCoreData> {
+        return NSFetchRequest<PautaCoreData>(entityName: "PautaCoreData")
     }
 
     @NSManaged public var title: String?

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="15508" systemVersion="19B88" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
-    <entity name="Pauta" representedClassName="Pauta" syncable="YES">
+    <entity name="PautaCoreData" representedClassName="PautaCoreData" syncable="YES">
         <attribute name="details" optional="YES" attributeType="String"/>
         <attribute name="smallDescription" optional="YES" attributeType="String"/>
         <attribute name="title" optional="YES" attributeType="String"/>
@@ -9,10 +9,10 @@
     <entity name="User" representedClassName="User" syncable="YES">
         <attribute name="email" optional="YES" attributeType="String"/>
         <attribute name="username" optional="YES" attributeType="String"/>
-        <relationship name="pautas" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Pauta" inverseName="author" inverseEntity="Pauta"/>
+        <relationship name="pautas" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="PautaCoreData" inverseName="author" inverseEntity="PautaCoreData"/>
     </entity>
     <elements>
+        <element name="PautaCoreData" positionX="241.421875" positionY="-104.01953125" width="128" height="103"/>
         <element name="User" positionX="-63" positionY="-18" width="128" height="88"/>
-        <element name="Pauta" positionX="241.421875" positionY="-104.01953125" width="128" height="103"/>
     </elements>
 </model>

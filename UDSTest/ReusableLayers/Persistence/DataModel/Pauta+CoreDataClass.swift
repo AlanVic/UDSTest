@@ -9,7 +9,7 @@
 import Foundation
 import CoreData
 
-@objc(Pauta)
-public class Pauta: NSManagedObject {
+@objc(PautaCoreData)
+public class PautaCoreData: NSManagedObject {
 
 }

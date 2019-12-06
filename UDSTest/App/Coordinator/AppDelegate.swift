@@ -10,6 +10,7 @@ import UIKit
 import CoreData
 import Firebase
 import FirebaseCore
+import IQKeyboardManagerSwift
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -20,7 +21,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         FirebaseApp.configure()
         
         let db = Firestore.firestore()
-        
         print(db)
         
         window = UIWindow(frame: UIScreen.main.bounds)
@@ -28,6 +28,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         window?.rootViewController = initialViewController
         window?.makeKeyAndVisible()
+        
+        IQKeyboardManager.shared.enable = true
+        
         return true
     }
 

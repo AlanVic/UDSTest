@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Pautas {
+struct Pauta {
     var title: String
     var shortDescription: String
     var description: String
@@ -22,7 +22,7 @@ struct Pautas {
     }
 }
 
-extension Pautas {
+extension Pauta {
     init?(dictionary: [String: Any], id: String) {
         guard let title = dictionary["title"] as? String,
             let shortDescription = dictionary["shortDescription"] as? String,

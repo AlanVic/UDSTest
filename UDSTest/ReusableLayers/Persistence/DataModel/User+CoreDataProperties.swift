@@ -26,10 +26,10 @@ extension User {
 extension User {
 
     @objc(addPautasObject:)
-    @NSManaged public func addToPautas(_ value: Pauta)
+    @NSManaged public func addToPautas(_ value: PautaCoreData)
 
     @objc(removePautasObject:)
-    @NSManaged public func removeFromPautas(_ value: Pauta)
+    @NSManaged public func removeFromPautas(_ value: PautaCoreData)
 
     @objc(addPautas:)
     @NSManaged public func addToPautas(_ values: NSSet)

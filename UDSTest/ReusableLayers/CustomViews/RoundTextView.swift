@@ -8,7 +8,16 @@
 
 import UIKit
 
-class RoundTextView: UITextView {
+class RoundTextView: UITextView, Editable {
+    var currentText: String? {
+        if self.text == placeHolder{
+            return ""
+        } else {
+           return text
+        }
+    }
+    
+    var didChanged: (() -> Void)?
     
     var placeHolder: String?
     
@@ -48,6 +57,10 @@ extension RoundTextView: UITextViewDelegate {
             textView.text = nil
             textView.textColor = UIColor.black
         }
+    }
+    
+    func textViewDidChange(_ textView: UITextView) {
+        didChanged?()
     }
     
     func textViewDidEndEditing(_ textView: UITextView) {

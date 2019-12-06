@@ -14,6 +14,7 @@ class RoundTextField: UITextField {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+        self.translatesAutoresizingMaskIntoConstraints = false
     }
     
     convenience init(placeHolder: String) {

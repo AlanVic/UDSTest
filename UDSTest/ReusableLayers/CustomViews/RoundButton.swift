@@ -12,6 +12,7 @@ class RoundButton: UIButton {
 
     override init(frame: CGRect) {
         super.init(frame: .zero)
+        self.translatesAutoresizingMaskIntoConstraints = false
     }
     
     convenience init(textButton: String) {

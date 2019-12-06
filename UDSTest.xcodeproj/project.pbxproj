@@ -21,6 +21,7 @@
 		92824644239A8041008086C4 /* Pautas.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92824643239A8041008086C4 /* Pautas.swift */; };
 		92824647239A973B008086C4 /* AddNewPautaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92824646239A973B008086C4 /* AddNewPautaViewController.swift */; };
 		92824649239A9754008086C4 /* AddNewPautaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92824648239A9754008086C4 /* AddNewPautaView.swift */; };
+		9282464B239AA0F0008086C4 /* RoundTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9282464A239AA0F0008086C4 /* RoundTextView.swift */; };
 		92D8F2102394563F0004B569 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D8F20F2394563F0004B569 /* LoginViewController.swift */; };
 		92D8F213239456820004B569 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D8F212239456820004B569 /* LoginViewModel.swift */; };
 		92D8F2192394A6460004B569 /* ConfigurableDao.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D8F2182394A6460004B569 /* ConfigurableDao.swift */; };
@@ -90,6 +91,7 @@
 		92824643239A8041008086C4 /* Pautas.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pautas.swift; sourceTree = "<group>"; };
 		92824646239A973B008086C4 /* AddNewPautaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewPautaViewController.swift; sourceTree = "<group>"; };
 		92824648239A9754008086C4 /* AddNewPautaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewPautaView.swift; sourceTree = "<group>"; };
+		9282464A239AA0F0008086C4 /* RoundTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundTextView.swift; sourceTree = "<group>"; };
 		92D8F20F2394563F0004B569 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		92D8F212239456820004B569 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		92D8F2182394A6460004B569 /* ConfigurableDao.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigurableDao.swift; sourceTree = "<group>"; };
@@ -381,6 +383,7 @@
 			children = (
 				92D8F2482397109D0004B569 /* RoundTextField.swift */,
 				92D8F24A239716980004B569 /* RoundButton.swift */,
+				9282464A239AA0F0008086C4 /* RoundTextView.swift */,
 			);
 			path = CustomViews;
 			sourceTree = "<group>";
@@ -656,6 +659,7 @@
 			files = (
 				92D8F21F2394A6DF0004B569 /* NSManagedObject+Extension.swift in Sources */,
 				92D8F2532397DC4A0004B569 /* SettingsViewModel.swift in Sources */,
+				9282464B239AA0F0008086C4 /* RoundTextView.swift in Sources */,
 				92D8F2102394563F0004B569 /* LoginViewController.swift in Sources */,
 				92D8F24F2397DB6D0004B569 /* SettingsViewController.swift in Sources */,
 				92D8F22F2394AD460004B569 /* User+CoreDataProperties.swift in Sources */,

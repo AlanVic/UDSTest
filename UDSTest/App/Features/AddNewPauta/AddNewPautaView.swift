@@ -16,11 +16,8 @@ class AddNewPautaView: UIView, ConfigurableView {
         return label
     }()
     
-    let titleTf: UITextField = {
-        let textField = UITextField(frame: .zero)
-        textField.translatesAutoresizingMaskIntoConstraints = false
-        textField.placeholder = "Digite o titulo"
-        textField.backgroundColor = .lightGray
+    let titleTf: RoundTextField = {
+        let textField = RoundTextField(placeHolder: "Digite o titulo", cornerRadius: 10)
         return textField
     }()
     
@@ -31,11 +28,9 @@ class AddNewPautaView: UIView, ConfigurableView {
         return label
     }()
     
-    let breveDescricaoTf: UITextField = {
-           let textField = UITextField(frame: .zero)
-           textField.translatesAutoresizingMaskIntoConstraints = false
-           textField.placeholder = "Digite uma breve descrição"
-           return textField
+    let breveDescricaoTf: RoundTextField = {
+        let textField = RoundTextField(placeHolder: "Digite uma breve descrição", cornerRadius: 10)
+        return textField
     }()
     
     let detailsLabel:UILabel = {
@@ -45,9 +40,9 @@ class AddNewPautaView: UIView, ConfigurableView {
         return label
     }()
     
-    let detailsTv: UITextView = {
-        let textView = UITextView(frame: .zero)
-        textView.translatesAutoresizingMaskIntoConstraints = false
+    let detailsTv: RoundTextView = {
+        let textView = RoundTextView(placeHolder: "Digite mais detalhes da pauta")
+        textView.font = .systemFont(ofSize: 18)
         return textView
     }()
     

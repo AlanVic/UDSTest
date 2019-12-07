@@ -62,6 +62,8 @@ class AddNewPautaView: UIView, ConfigurableView {
     
     lazy var viewModel = AddNewPautaViewModel(withEditableFields: [titleTf, breveDescricaoTf, detailsTv])
     
+    var createdNewPauta: (() -> Void)?
+    
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -80,7 +82,14 @@ class AddNewPautaView: UIView, ConfigurableView {
     }
     
     @objc func didTapDoneButton() {
-        viewModel.createNewPauta(withTitle: "Alan", andShortDescription: "Short", andFullDescription: "Full Description")
+        viewModel.createNewPauta(withTitle: titleTf.text ?? "", andShortDescription: breveDescricaoTf.text ?? "", andFullDescription: detailsTv.text) { (error) in
+            if error != nil {
+                print(error!)
+            }else {
+                self.createdNewPauta?()
+            }
+        }
+        
     }
     
     func buildViewHierarchy() {

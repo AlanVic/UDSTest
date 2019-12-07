@@ -42,12 +42,17 @@ class AddNewPautaViewModel {
     
     func createNewPauta(withTitle title: String,
                         andShortDescription shortDescription: String,
-                        andFullDescription description: String) {
-        let pauta = Pauta(title: title, shortDescription: shortDescription, description: description)
+                        andFullDescription description: String,
+                        completion: @escaping (Error?) -> Void) {
+        let currentAuthor = FireAccess.currentUserName()
+        
+        let pauta = Pauta(title: title, shortDescription: shortDescription, description: description, author: currentAuthor)
         colRef.addDocument(data: pauta.dictionary) { (error) in
             if error != nil {
+                completion(error)
                 print("oh louco deu erro")
             } else {
+                completion(nil)
                 print("Salvo com sucesso")
             }
         }

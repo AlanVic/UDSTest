@@ -23,13 +23,15 @@ class PautasAbertasViewController: UIViewController {
     }
     
     func setupNavigation(){
-        title = "Pautas Abertas"
+//        title = "Pautas Abertas"
         let addPauta = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addNewPauta))
         navigationItem.rightBarButtonItem = addPauta
     }
     
     @objc func addNewPauta() {
-        navigationController?.pushViewController(AddNewPautaViewController(), animated: true)
+        let navigation = UINavigationController(rootViewController: AddNewPautaViewController())
+        navigation.modalPresentationStyle = .pageSheet
+        self.present(navigation, animated: true, completion: nil)
     }
 
 }

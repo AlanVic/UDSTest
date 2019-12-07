@@ -14,10 +14,21 @@ class AddNewPautaViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        configNavigationBar()
+        newPautaView.createdNewPauta = {
+            self.navigationController?.dismiss(animated: true, completion: nil)
+        }
+    }
+    
+    func configNavigationBar(){
+        let barButton = UIBarButtonItem(title: "Cancelar", style: .plain, target: self, action: #selector(cancelButton))
+        
+        self.navigationItem.rightBarButtonItem = barButton
     }
 
+    @objc func cancelButton(){
+        self.navigationController?.dismiss(animated: true, completion: nil)
+    }
     override func loadView() {
         self.view = newPautaView
     }

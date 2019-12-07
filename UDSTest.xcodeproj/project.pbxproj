@@ -10,6 +10,7 @@
 		6CBAF1D1677E269D32232804 /* Pods_UDSTestTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C5673B16DAF4475C786B1DD /* Pods_UDSTestTests.framework */; };
 		9241F447239B2793002EA824 /* PautaCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9241F446239B2793002EA824 /* PautaCellViewModel.swift */; };
 		9241F449239BB4BA002EA824 /* PautaTableViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9241F448239BB4BA002EA824 /* PautaTableViewHeader.swift */; };
+		9241F44B239BC549002EA824 /* PautaTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9241F44A239BC549002EA824 /* PautaTableViewCell.swift */; };
 		924DE2A92393FE5100F5D823 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924DE2A82393FE5100F5D823 /* AppDelegate.swift */; };
 		924DE2B32393FE5100F5D823 /* UDSTest.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 924DE2B12393FE5100F5D823 /* UDSTest.xcdatamodeld */; };
 		924DE2B52393FE5300F5D823 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 924DE2B42393FE5300F5D823 /* Assets.xcassets */; };
@@ -78,6 +79,7 @@
 		8416E1F3610A0D998BC11F7D /* Pods-UDSTestTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UDSTestTests.debug.xcconfig"; path = "Target Support Files/Pods-UDSTestTests/Pods-UDSTestTests.debug.xcconfig"; sourceTree = "<group>"; };
 		9241F446239B2793002EA824 /* PautaCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PautaCellViewModel.swift; sourceTree = "<group>"; };
 		9241F448239BB4BA002EA824 /* PautaTableViewHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PautaTableViewHeader.swift; sourceTree = "<group>"; };
+		9241F44A239BC549002EA824 /* PautaTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PautaTableViewCell.swift; sourceTree = "<group>"; };
 		924DE2A52393FE5100F5D823 /* UDSTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UDSTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		924DE2A82393FE5100F5D823 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		924DE2B22393FE5100F5D823 /* UDSTest.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = UDSTest.xcdatamodel; sourceTree = "<group>"; };
@@ -344,6 +346,7 @@
 				9282463E239A7EC2008086C4 /* PautasAbertasViewModel.swift */,
 				9241F446239B2793002EA824 /* PautaCellViewModel.swift */,
 				9241F448239BB4BA002EA824 /* PautaTableViewHeader.swift */,
+				9241F44A239BC549002EA824 /* PautaTableViewCell.swift */,
 			);
 			path = PautasAbertas;
 			sourceTree = "<group>";
@@ -646,6 +649,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9282464F239AC1DA008086C4 /* Editable.swift in Sources */,
+				9241F44B239BC549002EA824 /* PautaTableViewCell.swift in Sources */,
 				92D8F21F2394A6DF0004B569 /* NSManagedObject+Extension.swift in Sources */,
 				92D8F2532397DC4A0004B569 /* SettingsViewModel.swift in Sources */,
 				9282464B239AA0F0008086C4 /* RoundTextView.swift in Sources */,

@@ -12,12 +12,14 @@ struct Pauta {
     var title: String
     var shortDescription: String
     var description: String
+    var author: String
     
     var dictionary: [String: Any] {
         return [
             "title": title,
             "shortDescription": shortDescription,
-            "description": description
+            "description": description,
+            "author": author
         ]
     }
 }
@@ -27,14 +29,16 @@ extension Pauta {
         title = ""
         shortDescription = ""
         description = ""
+        author = ""
     }
     
     init?(dictionary: [String: Any], id: String) {
         guard let title = dictionary["title"] as? String,
             let shortDescription = dictionary["shortDescription"] as? String,
-            let description = dictionary["description"] as? String
+            let description = dictionary["description"] as? String,
+            let author = dictionary["author"] as? String
             else { return nil }
         
-        self.init(title: title, shortDescription: shortDescription, description: description)
+        self.init(title: title, shortDescription: shortDescription, description: description, author: author)
     }
 }

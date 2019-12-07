@@ -26,6 +26,14 @@ struct FireAccess {
         }
     }
     
+    static func currentUserName() -> String {
+        if isLogged() {
+            return Auth.auth().currentUser?.displayName ?? ""
+        } else {
+            return ""
+        }
+    }
+    
     static func logout() {
         do {
             try Auth.auth().signOut()

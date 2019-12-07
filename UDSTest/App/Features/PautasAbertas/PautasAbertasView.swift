@@ -18,6 +18,7 @@ class PautasAbertasView: UIView, ConfigurableView {
         table.dataSource = self
         table.backgroundColor = .green
         table.register(PautaTableViewHeader.self, forHeaderFooterViewReuseIdentifier: "header")
+        table.register(PautaTableViewCell.self, forCellReuseIdentifier: "detailCell")
         return table
     }()
 
@@ -65,11 +66,16 @@ extension PautasAbertasView: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 0
+        return 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return UITableViewCell()
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "detailCell", for: indexPath) as? PautaTableViewCell else {
+            return UITableViewCell()
+        }
+        let vm = viewModel.cellViewModel(toSection: indexPath.section)
+        cell.setupView(cellViewModel: vm)
+        return cell
     }
     
     

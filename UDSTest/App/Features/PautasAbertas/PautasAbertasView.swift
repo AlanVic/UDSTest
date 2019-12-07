@@ -17,15 +17,17 @@ class PautasAbertasView: UIView, ConfigurableView {
         table.delegate = self
         table.dataSource = self
         table.backgroundColor = .green
+        table.register(PautaTableViewHeader.self, forHeaderFooterViewReuseIdentifier: "header")
         return table
     }()
-    
-    let pautasAbertasViewModel = PautasAbertasViewModel()
 
     override init(frame: CGRect) {
         super.init(frame: frame)
         buildViewHierarchy()
         setupConstraints()
+        viewModel.updateList = {
+            self.tableView.reloadData()
+        }
     }
     
     required init?(coder: NSCoder) {
@@ -49,8 +51,21 @@ class PautasAbertasView: UIView, ConfigurableView {
 }
 
 extension PautasAbertasView: UITableViewDelegate, UITableViewDataSource {
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return viewModel.numberOfRows()
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        guard let header = tableView.dequeueReusableHeaderFooterView(withIdentifier: "header") as? PautaTableViewHeader else {
+            return UIView()
+        }
+        let vm = viewModel.cellViewModel(toSection: section)
+        header.setupView(withViewModel: vm)
+        return header
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return pautasAbertasViewModel.numberOfRows()
+        return 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

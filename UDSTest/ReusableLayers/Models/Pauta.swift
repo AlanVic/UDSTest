@@ -23,6 +23,12 @@ struct Pauta {
 }
 
 extension Pauta {
+    init(){
+        title = ""
+        shortDescription = ""
+        description = ""
+    }
+    
     init?(dictionary: [String: Any], id: String) {
         guard let title = dictionary["title"] as? String,
             let shortDescription = dictionary["shortDescription"] as? String,

@@ -9,27 +9,53 @@
 import Foundation
 import Firebase
 
-struct PautasAbertasViewModel {
+class PautasAbertasViewModel {
     
     private var colRef: CollectionReference!
-    private var pautas: [Pauta] = []
+    
+    private var pautas: [PautaCellViewModel] = [] {
+        didSet {
+            DispatchQueue.main.async {
+                self.updateList?()
+            }
+        }
+    }
+    
+    var updateList: (() -> Void)?
     
     init() {
         colRef = Firestore.firestore().collection("Pautas")
     }
     
     func numberOfRows() -> Int {
-        return 0
+        if self.pautas.count == 0 {
+            fetchData()
+        }
+        return self.pautas.count
     }
     
-    func getPautas(completion: @escaping () -> Void) {
+    func fetchData() {
+        self.getPautas(completion: {
+            self.pautas = $0.map({ PautaCellViewModel($0) })
+        })
+    }
+    
+    func cellViewModel(toSection section: Int) -> PautaCellViewModel {
+        if pautas.count == 0 {
+            return PautaCellViewModel(Pauta())
+        }
+        let pautaCell = pautas[section]
+        return pautaCell
+    }
+    
+    func getPautas(completion: @escaping ([Pauta]) -> Void) {
         colRef.getDocuments { (querySnapshot, error) in
             if let error = error {
                 print("Error getting documents: \(error)")
             } else {
-                for document in querySnapshot!.documents {
-                    print("\(document.documentID) => \(document.data())")
-                }
+                let pautas = querySnapshot!.documents.map({ Pauta(dictionary: $0.data(), id: $0.documentID ) })
+                let pautasNonOptional = pautas.compactMap { $0 }
+                completion(pautasNonOptional)
             }
         }
     }

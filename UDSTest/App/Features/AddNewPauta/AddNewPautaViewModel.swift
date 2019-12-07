@@ -12,7 +12,7 @@ import Firebase
 class AddNewPautaViewModel {
     private var editableFields: [Editable]
     
-    private var docRef: CollectionReference!
+    private var colRef: CollectionReference!
     
     private var buttonEnabled = false {
         didSet{
@@ -23,7 +23,7 @@ class AddNewPautaViewModel {
     var enableButton: ((Bool) -> Void)?
     
     init(withEditableFields editableFields: [Editable]){
-        docRef = Firestore.firestore().collection("Pautas")
+        colRef = Firestore.firestore().collection("Pautas")
         self.editableFields = editableFields
         
         editableFields.forEach {
@@ -44,7 +44,7 @@ class AddNewPautaViewModel {
                         andShortDescription shortDescription: String,
                         andFullDescription description: String) {
         let pauta = Pauta(title: title, shortDescription: shortDescription, description: description)
-        docRef.addDocument(data: pauta.dictionary) { (error) in
+        colRef.addDocument(data: pauta.dictionary) { (error) in
             if error != nil {
                 print("oh louco deu erro")
             } else {

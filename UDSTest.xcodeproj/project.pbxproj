@@ -272,27 +272,11 @@
 		92D8F20D239456010004B569 /* Login */ = {
 			isa = PBXGroup;
 			children = (
-				92D8F211239456640004B569 /* ViewModel */,
-				92D8F20E2394560B0004B569 /* View */,
-			);
-			path = Login;
-			sourceTree = "<group>";
-		};
-		92D8F20E2394560B0004B569 /* View */ = {
-			isa = PBXGroup;
-			children = (
+				92D8F212239456820004B569 /* LoginViewModel.swift */,
 				92D8F20F2394563F0004B569 /* LoginViewController.swift */,
 				92D8F23F2396A37D0004B569 /* LoginView.swift */,
 			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		92D8F211239456640004B569 /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-				92D8F212239456820004B569 /* LoginViewModel.swift */,
-			);
-			path = ViewModel;
+			path = Login;
 			sourceTree = "<group>";
 		};
 		92D8F2162394A5EB0004B569 /* Persistence */ = {
@@ -351,19 +335,11 @@
 		92D8F23B239592580004B569 /* PautasAbertas */ = {
 			isa = PBXGroup;
 			children = (
-				92D8F23C239592700004B569 /* View */,
+				92D8F23D2395928F0004B569 /* PautasAbertasViewController.swift */,
+				92824640239A7F04008086C4 /* PautasAbertasView.swift */,
 				9282463E239A7EC2008086C4 /* PautasAbertasViewModel.swift */,
 			);
 			path = PautasAbertas;
-			sourceTree = "<group>";
-		};
-		92D8F23C239592700004B569 /* View */ = {
-			isa = PBXGroup;
-			children = (
-				92D8F23D2395928F0004B569 /* PautasAbertasViewController.swift */,
-				92824640239A7F04008086C4 /* PautasAbertasView.swift */,
-			);
-			path = View;
 			sourceTree = "<group>";
 		};
 		92D8F2412396A5460004B569 /* Protocol */ = {

@@ -9,7 +9,7 @@
 import Foundation
 import Firebase
 
-class PautasAbertasViewModel {
+class PautasViewModel {
     
     private var colRef: CollectionReference!
     
@@ -40,6 +40,7 @@ class PautasAbertasViewModel {
     func fetchData() {
         self.getPautas(completion: {
             self.pautas = $0.map({ PautaCellViewModel($0) })
+            self.updateList?()
         })
     }
     
@@ -51,30 +52,51 @@ class PautasAbertasViewModel {
         return pautaCell
     }
     
+    func changeStatus(atSection section:Int, completion: @escaping () -> Void) {
+        let pautaCell = pautas[section]
+        if let pauta = pautaCell.pauta, let status = TypePautas(rawValue: pauta.status) {
+            updatePauta(pauta: pautaCell, withStatus: status) {
+                completion()
+            }
+        }
+    }
+    
     func isExpanded(inSection section:Int) -> Bool {
        return pautas[section].isExpanded
     }
     
-    func collapsePautas(withoutSection section: Int) {
-        pautas.forEach { (pauta) in
-            let index = pautas.firstIndex { $0 == pauta }
-            
-        }
-        
-        for (index,pauta) in self.pautas.enumerated() {
-            if index == section{
-                return
-            }
-            
-            
-        }
-    }
+//    func collapsePautas(withoutSection section: Int) {
+//        pautas.forEach { (pauta) in
+//            let index = pautas.firstIndex { $0 == pauta }
+//
+//        }
+//
+//        for (index,pauta) in self.pautas.enumerated() {
+//            if index == section{
+//                return
+//            }
+//
+//
+//        }
+//    }
     
     func indexPathIsExpanded() -> IndexPath? {
         let indexes = pautas.firstIndex { $0.isExpanded == true }
         guard let onlyIndex = indexes else { return nil }
         
         return IndexPath(row: 0, section: onlyIndex)
+    }
+    
+    private func updatePauta(pauta: PautaCellViewModel, withStatus status: TypePautas, completion: @escaping () -> Void) {
+        if let pauta = pauta.pauta {
+            colRef.document(pauta.uuid).updateData(["status" : status.rawValue]) { (error) in
+                if let error = error {
+                    print("Error getting documents: \(error)")
+                } else {
+                   completion()
+                }
+            }
+        }
     }
     
     private func getPautas(completion: @escaping ([Pauta]) -> Void) {
@@ -87,16 +109,6 @@ class PautasAbertasViewModel {
                 completion(pautasNonOptional)
             }
         }
-        
-//        colRef.getDocuments { (querySnapshot, error) in
-//            if let error = error {
-//                print("Error getting documents: \(error)")
-//            } else {
-//                let pautas = querySnapshot!.documents.map({ Pauta(dictionary: $0.data(), id: $0.documentID ) })
-//                let pautasNonOptional = pautas.compactMap { $0 }
-//                completion(pautasNonOptional)
-//            }
-//        }
     }
     
 }

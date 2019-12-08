@@ -8,11 +8,7 @@
 
 import Foundation
 
-class PautaCellViewModel: Equatable {
-    static func == (lhs: PautaCellViewModel, rhs: PautaCellViewModel) -> Bool {
-        return lhs == rhs
-    }
-    
+class PautaCellViewModel {
     public let pauta: Pauta?
     public var isExpanded: Bool
     

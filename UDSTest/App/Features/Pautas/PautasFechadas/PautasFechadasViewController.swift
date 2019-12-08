@@ -10,7 +10,7 @@ import UIKit
 
 class PautasFechadasViewController: UIViewController {
         
-    let pautasView = PautasAbertasView(typeView: .finished)
+    let pautasView = PautasView(typeView: .finished)
     
     override func viewDidLoad() {
         super.viewDidLoad()

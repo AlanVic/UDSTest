@@ -10,7 +10,7 @@ import UIKit
 
 class PautasAbertasViewController: UIViewController {
     
-    let pautasView = PautasAbertasView(typeView: .open)
+    let pautasView = PautasView(typeView: .open)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,6 +20,10 @@ class PautasAbertasViewController: UIViewController {
     
     override func loadView() {
         self.view = pautasView
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        pautasView.viewModel.fetchData()
     }
     
     func setupNavigation(){

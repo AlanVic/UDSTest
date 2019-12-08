@@ -14,6 +14,7 @@ struct Pauta {
     var description: String
     var author: String
     var status: String
+    var uuid: String
     
     var dictionary: [String: Any] {
         return [
@@ -21,7 +22,8 @@ struct Pauta {
             "shortDescription": shortDescription,
             "description": description,
             "author": author,
-            "status": status
+            "status": status,
+            "uuid" : uuid
         ]
     }
 }
@@ -33,6 +35,7 @@ extension Pauta {
         description = ""
         author = ""
         status = TypePautas.open.rawValue
+        uuid = UUID().uuidString
     }
     
     init?(dictionary: [String: Any], id: String) {
@@ -40,9 +43,10 @@ extension Pauta {
             let shortDescription = dictionary["shortDescription"] as? String,
             let description = dictionary["description"] as? String,
             let author = dictionary["author"] as? String,
-            let status = dictionary["status"] as? String
+            let status = dictionary["status"] as? String,
+            let uuid = dictionary["uuid"] as? String
             else { return nil }
         
-        self.init(title: title, shortDescription: shortDescription, description: description, author: author, status: status)
+        self.init(title: title, shortDescription: shortDescription, description: description, author: author, status: status, uuid: uuid)
     }
 }

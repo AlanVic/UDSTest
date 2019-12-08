@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol PautaViewDelegate {
+    func didTapActionButton(button: UIButton)
+}
+
 class PautaTableViewCell: UITableViewCell, ConfigurableView {
     
     let longDescription: UILabel = {
@@ -29,12 +33,16 @@ class PautaTableViewCell: UITableViewCell, ConfigurableView {
         return label
     }()
     
-    let actionButton: RoundButton = {
-        let button = RoundButton(textButton: "Finalizar", conformingWidth: true)
+    lazy var actionButton: RoundButton = {
+        let button = RoundButton(textButton: "Alguma", conformingWidth: true)
         button.setContentCompressionResistancePriority(.defaultHigh, for: .vertical)
         button.addTarget(self, action: #selector(didTapActionButton), for: .touchDown)
         return button
     }()
+    
+    var type: TypePautas?
+    
+    var delegate: PautaViewDelegate?
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -47,8 +55,8 @@ class PautaTableViewCell: UITableViewCell, ConfigurableView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    @objc func didTapActionButton() {
-        
+    @objc func didTapActionButton(button: UIButton) {
+        delegate?.didTapActionButton(button: button)
     }
     
     func buildViewHierarchy() {
@@ -73,5 +81,14 @@ class PautaTableViewCell: UITableViewCell, ConfigurableView {
     func setupView(cellViewModel: PautaCellViewModel){
         self.longDescription.text = cellViewModel.pauta?.description
         self.authorLabel.text! = "Autor: \(cellViewModel.pauta?.author ?? "none")"
+        let type = TypePautas(rawValue: cellViewModel.pauta?.status ?? "Aberto")
+        switch type {
+        case .finished:
+            self.actionButton.setTitle("Abrir", for: .normal)
+        case .open:
+            self.actionButton.setTitle("Fechar", for: .normal)
+        case .none:
+            self.actionButton.setTitle("Fechar", for: .normal)
+        }
     }
 }

@@ -45,9 +45,10 @@ class AddNewPautaViewModel {
                         andFullDescription description: String,
                         completion: @escaping (Error?) -> Void) {
         let currentAuthor = FireAccess.currentUserName()
+        let uuid = UUID().uuidString
+        let pauta = Pauta(title: title, shortDescription: shortDescription, description: description, author: currentAuthor, status: TypePautas.open.rawValue, uuid: uuid)
         
-        let pauta = Pauta(title: title, shortDescription: shortDescription, description: description, author: currentAuthor, status: TypePautas.open.rawValue)
-        colRef.addDocument(data: pauta.dictionary) { (error) in
+        colRef.document(uuid).setData(pauta.dictionary) { (error) in
             if error != nil {
                 completion(error)
                 print("oh louco deu erro")
@@ -56,5 +57,8 @@ class AddNewPautaViewModel {
                 print("Salvo com sucesso")
             }
         }
+//        colRef.addDocument(data: pauta.dictionary) { (error) in
+//
+//        }
     }
 }

@@ -13,8 +13,19 @@ enum TypePautas: String {
     case finished = "Fechado"
 }
 
-class PautasAbertasView: UIView, ConfigurableView {
-    lazy var viewModel = PautasAbertasViewModel(withTypePautas: self.typePautasView)
+extension TypePautas {
+    func oppositeValue() -> TypePautas{
+        switch self {
+        case .finished:
+            return TypePautas.open
+        case .open:
+            return TypePautas.finished
+        }
+    }
+}
+
+class PautasView: UIView, ConfigurableView {
+    lazy var viewModel = PautasViewModel(withTypePautas: self.typePautasView)
     
     lazy var tableView:UITableView = {
         let table = UITableView(frame: .zero, style: UITableView.Style.grouped)
@@ -70,7 +81,7 @@ class PautasAbertasView: UIView, ConfigurableView {
     }
 }
 
-extension PautasAbertasView: UITableViewDelegate, UITableViewDataSource {
+extension PautasView: UITableViewDelegate, UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
         return viewModel.numberOfSections()
     }
@@ -100,6 +111,9 @@ extension PautasAbertasView: UITableViewDelegate, UITableViewDataSource {
         }
         let vm = viewModel.cellViewModel(toSection: indexPath.section)
         cell.setupView(cellViewModel: vm)
+        cell.type = self.typePautasView
+        cell.delegate = self
+        cell.actionButton.tag = indexPath.section
         return cell
     }
     
@@ -109,7 +123,17 @@ extension PautasAbertasView: UITableViewDelegate, UITableViewDataSource {
     
 }
 
-extension PautasAbertasView: PautaTableViewHeaderDelegate {
+extension PautasView: PautaViewDelegate {
+    func didTapActionButton(button: UIButton) {
+        let section = button.tag
+        viewModel.changeStatus(atSection: section) { [weak self] in
+            self?.viewModel.pautas.remove(at: section)
+            self?.tableView.deleteSections(IndexSet(integer: section), with: .none)
+        }
+    }
+}
+
+extension PautasView: PautaTableViewHeaderDelegate {
     func didExpandButtonTap(button: UIButton) {
         let section = button.tag
         

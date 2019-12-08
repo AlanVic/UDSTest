@@ -19,8 +19,8 @@
 		924DE2CE2393FE5400F5D823 /* UDSTestUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924DE2CD2393FE5400F5D823 /* UDSTestUITests.swift */; };
 		924DE2DF239404A100F5D823 /* CustomTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924DE2DE239404A100F5D823 /* CustomTabBarController.swift */; };
 		9282463D2399A2BE008086C4 /* RegisterVIewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9282463C2399A2BE008086C4 /* RegisterVIewModel.swift */; };
-		9282463F239A7EC2008086C4 /* PautasAbertasViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9282463E239A7EC2008086C4 /* PautasAbertasViewModel.swift */; };
-		92824641239A7F04008086C4 /* PautasAbertasView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92824640239A7F04008086C4 /* PautasAbertasView.swift */; };
+		9282463F239A7EC2008086C4 /* PautasViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9282463E239A7EC2008086C4 /* PautasViewModel.swift */; };
+		92824641239A7F04008086C4 /* PautasView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92824640239A7F04008086C4 /* PautasView.swift */; };
 		92824644239A8041008086C4 /* Pauta.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92824643239A8041008086C4 /* Pauta.swift */; };
 		92824647239A973B008086C4 /* AddNewPautaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92824646239A973B008086C4 /* AddNewPautaViewController.swift */; };
 		92824649239A9754008086C4 /* AddNewPautaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92824648239A9754008086C4 /* AddNewPautaView.swift */; };
@@ -95,8 +95,8 @@
 		924DE2CF2393FE5400F5D823 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		924DE2DE239404A100F5D823 /* CustomTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBarController.swift; sourceTree = "<group>"; };
 		9282463C2399A2BE008086C4 /* RegisterVIewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterVIewModel.swift; sourceTree = "<group>"; };
-		9282463E239A7EC2008086C4 /* PautasAbertasViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PautasAbertasViewModel.swift; sourceTree = "<group>"; };
-		92824640239A7F04008086C4 /* PautasAbertasView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PautasAbertasView.swift; sourceTree = "<group>"; };
+		9282463E239A7EC2008086C4 /* PautasViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PautasViewModel.swift; sourceTree = "<group>"; };
+		92824640239A7F04008086C4 /* PautasView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PautasView.swift; sourceTree = "<group>"; };
 		92824643239A8041008086C4 /* Pauta.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pauta.swift; sourceTree = "<group>"; };
 		92824646239A973B008086C4 /* AddNewPautaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewPautaViewController.swift; sourceTree = "<group>"; };
 		92824648239A9754008086C4 /* AddNewPautaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewPautaView.swift; sourceTree = "<group>"; };
@@ -297,7 +297,7 @@
 			isa = PBXGroup;
 			children = (
 				9241F446239B2793002EA824 /* PautaCellViewModel.swift */,
-				9282463E239A7EC2008086C4 /* PautasAbertasViewModel.swift */,
+				9282463E239A7EC2008086C4 /* PautasViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -305,7 +305,7 @@
 		92A926AB239D2F220056268B /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				92824640239A7F04008086C4 /* PautasAbertasView.swift */,
+				92824640239A7F04008086C4 /* PautasView.swift */,
 				9241F448239BB4BA002EA824 /* PautaTableViewHeader.swift */,
 				9241F44A239BC549002EA824 /* PautaTableViewCell.swift */,
 			);
@@ -699,7 +699,7 @@
 				924DE2B32393FE5100F5D823 /* UDSTest.xcdatamodeld in Sources */,
 				92D8F2352395830F0004B569 /* Pauta+CoreDataClass.swift in Sources */,
 				92D8F25A23994FBA0004B569 /* RegisterView.swift in Sources */,
-				9282463F239A7EC2008086C4 /* PautasAbertasViewModel.swift in Sources */,
+				9282463F239A7EC2008086C4 /* PautasViewModel.swift in Sources */,
 				924DE2DF239404A100F5D823 /* CustomTabBarController.swift in Sources */,
 				92D8F2192394A6460004B569 /* ConfigurableDao.swift in Sources */,
 				92D8F23E2395928F0004B569 /* PautasAbertasViewController.swift in Sources */,
@@ -720,7 +720,7 @@
 				92D8F2362395830F0004B569 /* Pauta+CoreDataProperties.swift in Sources */,
 				92D8F2402396A37D0004B569 /* LoginView.swift in Sources */,
 				92D8F23A239587F00004B569 /* FireAccess.swift in Sources */,
-				92824641239A7F04008086C4 /* PautasAbertasView.swift in Sources */,
+				92824641239A7F04008086C4 /* PautasView.swift in Sources */,
 				92D8F2512397DB800004B569 /* SettingsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

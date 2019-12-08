@@ -32,6 +32,7 @@ class PautaTableViewCell: UITableViewCell, ConfigurableView {
     let actionButton: RoundButton = {
         let button = RoundButton(textButton: "Finalizar", conformingWidth: true)
         button.setContentCompressionResistancePriority(.defaultHigh, for: .vertical)
+        button.addTarget(self, action: #selector(didTapActionButton), for: .touchDown)
         return button
     }()
 
@@ -44,6 +45,10 @@ class PautaTableViewCell: UITableViewCell, ConfigurableView {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    @objc func didTapActionButton() {
+        
     }
     
     func buildViewHierarchy() {
@@ -67,6 +72,6 @@ class PautaTableViewCell: UITableViewCell, ConfigurableView {
     
     func setupView(cellViewModel: PautaCellViewModel){
         self.longDescription.text = cellViewModel.pauta?.description
-        self.authorLabel.text! = "Autor: \(cellViewModel.pauta?.author ?? "none")" 
+        self.authorLabel.text! = "Autor: \(cellViewModel.pauta?.author ?? "none")"
     }
 }

@@ -10,8 +10,10 @@ import Foundation
 
 struct PautaCellViewModel{
     public let pauta: Pauta?
+    public var isExpanded: Bool
     
     init(_ pauta: Pauta) {
         self.pauta = pauta
+        self.isExpanded = false
     }
 }

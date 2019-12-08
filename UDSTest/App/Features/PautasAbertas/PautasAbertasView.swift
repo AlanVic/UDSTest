@@ -57,20 +57,26 @@ class PautasAbertasView: UIView, ConfigurableView {
 
 extension PautasAbertasView: UITableViewDelegate, UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
-        return viewModel.numberOfRows()
+        return viewModel.numberOfSections()
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         guard let header = tableView.dequeueReusableHeaderFooterView(withIdentifier: "header") as? PautaTableViewHeader else {
             return UIView()
         }
+        header.delegate = self
+        header.disclosureButton.tag = section
         let vm = viewModel.cellViewModel(toSection: section)
         header.setupView(withViewModel: vm)
         return header
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        if !viewModel.isExpanded(inSection: section){
+            return 0
+        } else {
+            return 1
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -83,7 +89,25 @@ extension PautasAbertasView: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return  UITableView.automaticDimension
+        return 46
     }
     
+}
+
+extension PautasAbertasView: PautaTableViewHeaderDelegate {
+    func didExpandButtonTap(button: UIButton) {
+        let section = button.tag
+        
+        let isExpanded = viewModel.pautas[section].isExpanded
+        viewModel.pautas[section].isExpanded = !isExpanded
+        
+        button.setImage(isExpanded ? UIImage(named: "expand") : UIImage(named: "hide"), for: .normal)
+        
+        if isExpanded {
+            tableView.deleteRows(at: [IndexPath(row: 0, section: section)], with: .none)
+        }else {
+            tableView.insertRows(at: [IndexPath(row: 0, section: section)], with: .none)
+        }
+        
+    }
 }

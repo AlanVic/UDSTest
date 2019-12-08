@@ -13,7 +13,7 @@ class PautasAbertasViewModel {
     
     private var colRef: CollectionReference!
     
-    private var pautas: [PautaCellViewModel] = [] {
+    var pautas: [PautaCellViewModel] = [] {
         didSet {
             DispatchQueue.main.async {
                 self.updateList?()
@@ -27,7 +27,7 @@ class PautasAbertasViewModel {
         colRef = Firestore.firestore().collection("Pautas")
     }
     
-    func numberOfRows() -> Int {
+    func numberOfSections() -> Int {
         if self.pautas.count == 0 {
             fetchData()
         }
@@ -48,7 +48,11 @@ class PautasAbertasViewModel {
         return pautaCell
     }
     
-    func getPautas(completion: @escaping ([Pauta]) -> Void) {
+    func isExpanded(inSection section:Int) -> Bool {
+       return pautas[section].isExpanded
+    }
+    
+    private func getPautas(completion: @escaping ([Pauta]) -> Void) {
         colRef.getDocuments { (querySnapshot, error) in
             if let error = error {
                 print("Error getting documents: \(error)")

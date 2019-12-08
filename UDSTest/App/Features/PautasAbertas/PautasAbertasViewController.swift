@@ -30,7 +30,7 @@ class PautasAbertasViewController: UIViewController {
     
     @objc func addNewPauta() {
         let navigation = UINavigationController(rootViewController: AddNewPautaViewController())
-        navigation.modalPresentationStyle = .pageSheet
+        navigation.modalPresentationStyle = .fullScreen
         self.present(navigation, animated: true, completion: nil)
     }
 

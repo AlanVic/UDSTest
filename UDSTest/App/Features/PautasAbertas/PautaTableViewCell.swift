@@ -15,6 +15,8 @@ class PautaTableViewCell: UITableViewCell, ConfigurableView {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "Title"
         label.font = .systemFont(ofSize: 14)
+        label.numberOfLines = 0
+        label.setContentHuggingPriority(UILayoutPriority.defaultHigh, for: .vertical)
         return label
     }()
     
@@ -23,16 +25,19 @@ class PautaTableViewCell: UITableViewCell, ConfigurableView {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "Autor: "
         label.font = .italicSystemFont(ofSize: 12)
+        label.setContentCompressionResistancePriority(.defaultHigh, for: .vertical)
         return label
     }()
     
     let actionButton: RoundButton = {
-        let button = RoundButton(textButton: "Finalizar", height: 32)
+        let button = RoundButton(textButton: "Finalizar", conformingWidth: true)
+        button.setContentCompressionResistancePriority(.defaultHigh, for: .vertical)
         return button
     }()
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
+        self.contentView.backgroundColor = .white
         buildViewHierarchy()
         setupConstraints()
     }
@@ -49,20 +54,19 @@ class PautaTableViewCell: UITableViewCell, ConfigurableView {
         NSLayoutConstraint.activate([
             longDescription.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 12),
             longDescription.topAnchor.constraint(equalTo: topAnchor, constant: 8),
-            longDescription.trailingAnchor.constraint(equalTo: trailingAnchor, constant: 8),
+            longDescription.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -8),
             
             authorLabel.leadingAnchor.constraint(equalTo: longDescription.leadingAnchor),
-            authorLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: 8),
+            authorLabel.topAnchor.constraint(equalTo: longDescription.bottomAnchor, constant: 4),
             
             actionButton.trailingAnchor.constraint(equalTo: longDescription.trailingAnchor),
-            actionButton.leadingAnchor.constraint(equalTo: authorLabel.trailingAnchor, constant: 8),
-            actionButton.topAnchor.constraint(equalTo: longDescription.topAnchor, constant: 8),
+            actionButton.topAnchor.constraint(equalTo: longDescription.bottomAnchor, constant: 4),
             actionButton.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -8)
         ])
     }
     
     func setupView(cellViewModel: PautaCellViewModel){
         self.longDescription.text = cellViewModel.pauta?.description
-        self.authorLabel.text! += cellViewModel.pauta?.author ?? "none"
+        self.authorLabel.text! = "Autor: \(cellViewModel.pauta?.author ?? "none")" 
     }
 }

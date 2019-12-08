@@ -12,14 +12,15 @@ import FirebaseAuth
 struct RegisterVIewModel {
     let firebaseAuth = Auth.auth()
     
-    func signUpUser(withEmail email:String?, andPassword password:String?, completion: @escaping (Bool) -> Void) {
-        guard let userEmail = email, let userPassword = password else { return completion(false) }
-        
-        firebaseAuth.createUser(withEmail: userEmail, password: userPassword) { (user, error) in
-            if error != nil { completion(false) }
-            
-//            user.
-            completion(true)
+    func signUpUser(withEmail email:String, andPassword password:String, andUserName username: String, completion: @escaping (Error?) -> Void) {
+        firebaseAuth.createUser(withEmail: email, password: password) { (user, error) in
+            if error != nil { completion(error) }
+            let changeRequest = self.firebaseAuth.currentUser?.createProfileChangeRequest()
+            changeRequest?.displayName = username
+            changeRequest?.commitChanges(completion: { (error) in
+                if error != nil { completion(error) }
+                completion(nil)
+            })
         }
     }
 }

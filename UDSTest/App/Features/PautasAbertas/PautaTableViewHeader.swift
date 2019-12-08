@@ -31,6 +31,7 @@ class PautaTableViewHeader: UITableViewHeaderFooterView, ConfigurableView {
         let image = UIImageView(image: UIImage(imageLiteralResourceName: "hide"))
         image.translatesAutoresizingMaskIntoConstraints = false
         image.contentMode = .scaleAspectFit
+        image.setContentCompressionResistancePriority(.defaultHigh, for: .vertical)
         return image
     }()
 
@@ -45,23 +46,25 @@ class PautaTableViewHeader: UITableViewHeaderFooterView, ConfigurableView {
     }
     
     func buildViewHierarchy() {
-        addSubviews([titleLabel, shortDescription, disclosureImage])
+        contentView.addSubviews([titleLabel, shortDescription, disclosureImage])
     }
     
     func setupConstraints() {
+        self.contentView.autoresizingMask = .flexibleHeight
+        
         NSLayoutConstraint.activate([
-            titleLabel.topAnchor.constraint(equalTo: topAnchor, constant: 8),
-            titleLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 8),
+            titleLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 8),
+            titleLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 8),
             titleLabel.trailingAnchor.constraint(equalTo: disclosureImage.leadingAnchor, constant: -4),
             
             shortDescription.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 4),
-            shortDescription.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 8),
+            shortDescription.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 8),
             shortDescription.trailingAnchor.constraint(equalTo: disclosureImage.leadingAnchor, constant: -4),
-//            shortDescription.bottomAnchor.constraint(equalTo: bottomAnchor, constant: 8),
+            shortDescription.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -8),
             
-            disclosureImage.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -4),
-            disclosureImage.topAnchor.constraint(equalTo: topAnchor, constant: 4),
-            disclosureImage.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -8),
+            disclosureImage.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -4),
+            disclosureImage.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 4),
+            disclosureImage.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -8),
             disclosureImage.widthAnchor.constraint(equalToConstant: 30),
             disclosureImage.heightAnchor.constraint(equalToConstant: 38)
         ])

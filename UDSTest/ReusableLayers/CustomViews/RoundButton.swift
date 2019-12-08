@@ -21,6 +21,7 @@ class RoundButton: UIButton {
     }
     
     var height: CGFloat?
+    var conformingWidth: Bool?
     
 
     override init(frame: CGRect) {
@@ -33,10 +34,9 @@ class RoundButton: UIButton {
         self.setTitle(textButton, for: .normal)
     }
     
-    convenience init(textButton: String, height:CGFloat) {
+    convenience init(textButton: String, conformingWidth: Bool) {
         self.init(textButton: textButton)
-        self.height = height
-        
+        self.conformingWidth = conformingWidth
     }
 
     required init?(coder: NSCoder) {
@@ -49,21 +49,16 @@ class RoundButton: UIButton {
     }
     
     func didSetupLayout() {
-        if let height = height {
-            self.heightAnchor.constraint(equalToConstant: height).isActive = true
-            self.sizeToFit()
+        
+        if conformingWidth != nil {
+            self.subviews.forEach {
+                if let label = $0 as? UILabel{
+                    let textButton = label.text!
+                    let size: CGSize = textButton.size(withAttributes: [.font: UIFont.systemFont(ofSize: 14)])
+                    self.widthAnchor.constraint(equalToConstant: size.width + 16).isActive = true
+                }
+            }
         }
-        
-//        if let height = height {
-//            self.heightAnchor.constraint(equalToConstant: height).isActive = true
-//            self.subviews.forEach {
-//                if let label = $0 as? UILabel{
-//                    let nsString = label.text! as NSString
-//                    nsString.size(withAttributes: [font : Any]?)
-//                }
-//            }
-//        }
-        
         
         self.titleLabel?.textColor = .white
         self.layer.cornerRadius = self.frame.height/2

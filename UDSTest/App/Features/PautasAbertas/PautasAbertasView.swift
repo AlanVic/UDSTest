@@ -12,12 +12,16 @@ class PautasAbertasView: UIView, ConfigurableView {
     let viewModel = PautasAbertasViewModel()
     
     lazy var tableView:UITableView = {
-        let table = UITableView(frame: .zero)
+        let table = UITableView(frame: .zero, style: UITableView.Style.grouped)
         table.translatesAutoresizingMaskIntoConstraints = false
         table.delegate = self
         table.dataSource = self
-        table.backgroundColor = .green
+        table.backgroundColor = .white
+        table.rowHeight = UITableView.automaticDimension
+        table.estimatedRowHeight = 50
         table.register(PautaTableViewHeader.self, forHeaderFooterViewReuseIdentifier: "header")
+        table.sectionHeaderHeight = UITableView.automaticDimension
+        table.estimatedRowHeight = 10
         table.register(PautaTableViewCell.self, forCellReuseIdentifier: "detailCell")
         return table
     }()
@@ -78,5 +82,8 @@ extension PautasAbertasView: UITableViewDelegate, UITableViewDataSource {
         return cell
     }
     
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return  UITableView.automaticDimension
+    }
     
 }

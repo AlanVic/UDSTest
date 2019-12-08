@@ -38,6 +38,8 @@ class RegisterView: UIView, ConfigurableView {
     
     var didTapInRegister: (() -> Void)?
     
+    let viewModel = RegisterVIewModel()
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.backgroundColor = .white
@@ -50,7 +52,14 @@ class RegisterView: UIView, ConfigurableView {
     }
     
     @objc func didTapInRegisterButton() {
-        didTapInRegister?()
+        viewModel.signUpUser(withEmail: emailTextField.text!, andPassword: passwordTextField.text!, andUserName: nameTextField.text!) { [weak self] (error) in
+            if error != nil {
+                print("Erro na criação da conta: \(error!)")
+                return
+            } else {
+                self?.didTapInRegister?()
+            }
+        }
     }
     
     

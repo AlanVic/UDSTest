@@ -46,7 +46,7 @@ class AddNewPautaViewModel {
                         completion: @escaping (Error?) -> Void) {
         let currentAuthor = FireAccess.currentUserName()
         
-        let pauta = Pauta(title: title, shortDescription: shortDescription, description: description, author: currentAuthor)
+        let pauta = Pauta(title: title, shortDescription: shortDescription, description: description, author: currentAuthor, status: TypePautas.open.rawValue)
         colRef.addDocument(data: pauta.dictionary) { (error) in
             if error != nil {
                 completion(error)

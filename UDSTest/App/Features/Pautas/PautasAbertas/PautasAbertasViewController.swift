@@ -10,7 +10,7 @@ import UIKit
 
 class PautasAbertasViewController: UIViewController {
     
-    let pautasAbertasView = PautasAbertasView()
+    let pautasView = PautasAbertasView(typeView: .open)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,11 +19,11 @@ class PautasAbertasViewController: UIViewController {
     }
     
     override func loadView() {
-        self.view = pautasAbertasView
+        self.view = pautasView
     }
     
     func setupNavigation(){
-//        title = "Pautas Abertas"
+        title = "Pautas Abertas"
         let addPauta = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addNewPauta))
         navigationItem.rightBarButtonItem = addPauta
     }

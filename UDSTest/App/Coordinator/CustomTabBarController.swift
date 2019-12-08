@@ -34,14 +34,15 @@ class CustomTabBarController: UITabBarController {
 extension CustomTabBarController: ConfigurableTabBar {
     fileprivate func setupTabBar() {
         self.viewControllers = [
-            createNavigation(viewController: PautasAbertasViewController(), title: "Login", imageNamed: "profile-icon"),
-            createNavigation(viewController: PautasAbertasViewController(), title: "Login", imageNamed: "profile-icon"),
+            createNavigation(viewController: PautasAbertasViewController(), title: "Pautas Abertas", imageNamed: "profile-icon"),
+            createNavigation(viewController: PautasFechadasViewController(), title: "Pautas Fechadas", imageNamed: "profile-icon"),
             createNavigation(viewController: SettingsViewController(), title: "Settings", imageNamed: "profile-icon")
         ]
     }
     
     func createNavigation(viewController: UIViewController, title: String, imageNamed: String) -> UINavigationController {
         let navigation = UINavigationController(rootViewController: viewController)
+        navigation.title = title
         navigation.tabBarItem.image = UIImage(named: imageNamed)
         navigation.tabBarItem.imageInsets = UIEdgeInsets(top: 5, left: 0, bottom: -5, right: 0)
         return navigation

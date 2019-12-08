@@ -8,7 +8,11 @@
 
 import Foundation
 
-struct PautaCellViewModel{
+class PautaCellViewModel: Equatable {
+    static func == (lhs: PautaCellViewModel, rhs: PautaCellViewModel) -> Bool {
+        return lhs == rhs
+    }
+    
     public let pauta: Pauta?
     public var isExpanded: Bool
     
@@ -16,4 +20,5 @@ struct PautaCellViewModel{
         self.pauta = pauta
         self.isExpanded = false
     }
+    
 }

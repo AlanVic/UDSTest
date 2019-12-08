@@ -13,13 +13,15 @@ struct Pauta {
     var shortDescription: String
     var description: String
     var author: String
+    var status: String
     
     var dictionary: [String: Any] {
         return [
             "title": title,
             "shortDescription": shortDescription,
             "description": description,
-            "author": author
+            "author": author,
+            "status": status
         ]
     }
 }
@@ -30,15 +32,17 @@ extension Pauta {
         shortDescription = ""
         description = ""
         author = ""
+        status = TypePautas.open.rawValue
     }
     
     init?(dictionary: [String: Any], id: String) {
         guard let title = dictionary["title"] as? String,
             let shortDescription = dictionary["shortDescription"] as? String,
             let description = dictionary["description"] as? String,
-            let author = dictionary["author"] as? String
+            let author = dictionary["author"] as? String,
+            let status = dictionary["status"] as? String
             else { return nil }
         
-        self.init(title: title, shortDescription: shortDescription, description: description, author: author)
+        self.init(title: title, shortDescription: shortDescription, description: description, author: author, status: status)
     }
 }

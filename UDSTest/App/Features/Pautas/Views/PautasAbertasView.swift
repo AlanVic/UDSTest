@@ -8,8 +8,13 @@
 
 import UIKit
 
+enum TypePautas: String {
+    case open = "Aberto"
+    case finished = "Fechado"
+}
+
 class PautasAbertasView: UIView, ConfigurableView {
-    let viewModel = PautasAbertasViewModel()
+    lazy var viewModel = PautasAbertasViewModel(withTypePautas: self.typePautasView)
     
     lazy var tableView:UITableView = {
         let table = UITableView(frame: .zero, style: UITableView.Style.grouped)
@@ -25,9 +30,19 @@ class PautasAbertasView: UIView, ConfigurableView {
         table.register(PautaTableViewCell.self, forCellReuseIdentifier: "detailCell")
         return table
     }()
+    
+    var isExpandedIndexPath:IndexPath?
+    
+    var typePautasView: TypePautas
 
     override init(frame: CGRect) {
+        typePautasView = .open
         super.init(frame: frame)
+    }
+    
+    convenience init(typeView: TypePautas){
+        self.init(frame: .zero)
+        self.typePautasView = typeView
         buildViewHierarchy()
         setupConstraints()
         viewModel.updateList = {
@@ -102,12 +117,41 @@ extension PautasAbertasView: PautaTableViewHeaderDelegate {
         viewModel.pautas[section].isExpanded = !isExpanded
         
         button.setImage(isExpanded ? UIImage(named: "expand") : UIImage(named: "hide"), for: .normal)
-        
+//        print(isExpandedIndexPath)
         if isExpanded {
             tableView.deleteRows(at: [IndexPath(row: 0, section: section)], with: .none)
+            isExpandedIndexPath = nil
         }else {
             tableView.insertRows(at: [IndexPath(row: 0, section: section)], with: .none)
+            collapseCell()
+            isExpandedIndexPath = IndexPath(row: 0, section: section)
         }
         
+//        colapseCell(withoutSection: section)
+        
     }
+    
+    func collapseCell() {
+        tableView.reloadData()
+//        if let indexPath = isExpandedIndexPath {
+//            tableView.beginUpdates()
+//            tableView.deleteSections(IndexSet(integer: indexPath.section), with: .none)
+//            tableView.insertSections(IndexSet(integer: indexPath.section), with: .none)
+//            tableView.endUpdates()
+//        }
+    }
+    
+    
+//    func colapseCell(withoutSection section: Int) {
+//        if let indexPaths = tableView.indexPathsForVisibleRows {
+//
+//        }
+//
+//
+//
+////        if let indexPathExpanded = viewModel.indexPathIsExpanded() {
+////            tableView.deleteRows(at: [indexPathExpanded], with: .none)
+////        }
+//    }
+    
 }

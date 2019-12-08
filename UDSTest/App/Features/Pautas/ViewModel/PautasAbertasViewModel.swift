@@ -21,9 +21,12 @@ class PautasAbertasViewModel {
         }
     }
     
+    var typePautas: TypePautas
+    
     var updateList: (() -> Void)?
     
-    init() {
+    init(withTypePautas typePautas: TypePautas) {
+        self.typePautas = typePautas
         colRef = Firestore.firestore().collection("Pautas")
     }
     
@@ -52,8 +55,30 @@ class PautasAbertasViewModel {
        return pautas[section].isExpanded
     }
     
+    func collapsePautas(withoutSection section: Int) {
+        pautas.forEach { (pauta) in
+            let index = pautas.firstIndex { $0 == pauta }
+            
+        }
+        
+        for (index,pauta) in self.pautas.enumerated() {
+            if index == section{
+                return
+            }
+            
+            
+        }
+    }
+    
+    func indexPathIsExpanded() -> IndexPath? {
+        let indexes = pautas.firstIndex { $0.isExpanded == true }
+        guard let onlyIndex = indexes else { return nil }
+        
+        return IndexPath(row: 0, section: onlyIndex)
+    }
+    
     private func getPautas(completion: @escaping ([Pauta]) -> Void) {
-        colRef.getDocuments { (querySnapshot, error) in
+        colRef.whereField("status", isEqualTo: typePautas.rawValue).getDocuments { (querySnapshot, error) in
             if let error = error {
                 print("Error getting documents: \(error)")
             } else {
@@ -62,6 +87,16 @@ class PautasAbertasViewModel {
                 completion(pautasNonOptional)
             }
         }
+        
+//        colRef.getDocuments { (querySnapshot, error) in
+//            if let error = error {
+//                print("Error getting documents: \(error)")
+//            } else {
+//                let pautas = querySnapshot!.documents.map({ Pauta(dictionary: $0.data(), id: $0.documentID ) })
+//                let pautasNonOptional = pautas.compactMap { $0 }
+//                completion(pautasNonOptional)
+//            }
+//        }
     }
     
 }

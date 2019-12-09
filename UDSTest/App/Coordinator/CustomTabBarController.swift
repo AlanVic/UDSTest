@@ -34,8 +34,8 @@ class CustomTabBarController: UITabBarController {
 extension CustomTabBarController: ConfigurableTabBar {
     fileprivate func setupTabBar() {
         self.viewControllers = [
-            createNavigation(viewController: PautasAbertasViewController(), title: "Pautas Abertas", imageNamed: "profile-icon"),
-            createNavigation(viewController: PautasFechadasViewController(), title: "Pautas Fechadas", imageNamed: "profile-icon"),
+            createNavigation(viewController: PautasViewController(withTypeController: .open), title: "Pautas Abertas", imageNamed: "profile-icon"),
+            createNavigation(viewController: PautasViewController(withTypeController: .finished), title: "Pautas Fechadas", imageNamed: "profile-icon"),
             createNavigation(viewController: SettingsViewController(), title: "Settings", imageNamed: "profile-icon")
         ]
     }

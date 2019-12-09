@@ -31,17 +31,23 @@ class PautasViewModel {
     }
     
     func numberOfSections() -> Int {
-        if self.pautas.count == 0 {
-            fetchData()
-        }
         return self.pautas.count
     }
     
-    func fetchData() {
-        self.getPautas(completion: {
-            self.pautas = $0.map({ PautaCellViewModel($0) })
-            self.updateList?()
-        })
+    func fetchData(completion: @escaping (Error?) -> Void) {
+        self.getPautas { (pautas, error) in
+            if let error = error {
+                completion(error)
+            } else {
+                if pautas.count == 0{
+                    let error = NSError(domain: "Não existe esse tipo de pautas", code: 0, userInfo: nil) as Error
+                    completion(error)
+                } else {
+                    self.pautas = pautas.map({ PautaCellViewModel($0) })
+                    completion(nil)
+                }
+            }
+        }
     }
     
     func cellViewModel(toSection section: Int) -> PautaCellViewModel {
@@ -104,14 +110,15 @@ class PautasViewModel {
         }
     }
     
-    private func getPautas(completion: @escaping ([Pauta]) -> Void) {
+    private func getPautas(completion: @escaping ([Pauta],Error?) -> Void) {
         colRef.whereField("status", isEqualTo: typePautas.rawValue).getDocuments { (querySnapshot, error) in
             if let error = error {
+                completion([],error)
                 print("Error getting documents: \(error)")
             } else {
                 let pautas = querySnapshot!.documents.map({ Pauta(dictionary: $0.data(), id: $0.documentID ) })
                 let pautasNonOptional = pautas.compactMap { $0 }
-                completion(pautasNonOptional)
+                completion(pautasNonOptional,nil)
             }
         }
     }

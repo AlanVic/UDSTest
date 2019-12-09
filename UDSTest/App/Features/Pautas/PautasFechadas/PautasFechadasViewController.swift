@@ -22,6 +22,15 @@ class PautasFechadasViewController: UIViewController {
         self.view = pautasView
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        pautasView.viewModel.fetchData { (error) in
+            if let error = error {
+                let nsError = error as NSError
+                print(nsError.domain)
+            }
+        }
+    }
+    
     func setupNavigation(){
         title = "Pautas Fechadas"
     }

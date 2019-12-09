@@ -9,6 +9,7 @@
 import Foundation
 
 enum SettingsOptions: String, CaseIterable {
+    case Perfil = "Perfil"
     case Logout = "Logout"
 }
 

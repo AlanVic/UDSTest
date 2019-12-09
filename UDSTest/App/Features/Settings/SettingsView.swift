@@ -24,6 +24,7 @@ class SettingsView: UIView, ConfigurableView {
 
     override init(frame: CGRect) {
         super.init(frame: frame)
+        self.backgroundColor = .white
         buildViewHierarchy()
         setupConstraints()
     }

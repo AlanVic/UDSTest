@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		6CBAF1D1677E269D32232804 /* Pods_UDSTestTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C5673B16DAF4475C786B1DD /* Pods_UDSTestTests.framework */; };
+		920DF8FE239E93E1001CCB3C /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 920DF8FD239E93E1001CCB3C /* ProfileViewController.swift */; };
+		920DF900239E93EE001CCB3C /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 920DF8FF239E93EE001CCB3C /* ProfileViewModel.swift */; };
+		920DF902239E93F9001CCB3C /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 920DF901239E93F9001CCB3C /* ProfileView.swift */; };
 		9232BA5E239E88DA008168CC /* PautasViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9232BA5D239E88DA008168CC /* PautasViewController.swift */; };
 		9241F447239B2793002EA824 /* PautaCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9241F446239B2793002EA824 /* PautaCellViewModel.swift */; };
 		9241F449239BB4BA002EA824 /* PautaTableViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9241F448239BB4BA002EA824 /* PautaTableViewHeader.swift */; };
@@ -77,6 +80,9 @@
 		2C5673B16DAF4475C786B1DD /* Pods_UDSTestTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UDSTestTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		35A3D5458CA2B1D65AE14F51 /* Pods_UDSTest_UDSTestUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UDSTest_UDSTestUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8416E1F3610A0D998BC11F7D /* Pods-UDSTestTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UDSTestTests.debug.xcconfig"; path = "Target Support Files/Pods-UDSTestTests/Pods-UDSTestTests.debug.xcconfig"; sourceTree = "<group>"; };
+		920DF8FD239E93E1001CCB3C /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		920DF8FF239E93EE001CCB3C /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
+		920DF901239E93F9001CCB3C /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		9232BA5D239E88DA008168CC /* PautasViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PautasViewController.swift; sourceTree = "<group>"; };
 		9241F446239B2793002EA824 /* PautaCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PautaCellViewModel.swift; sourceTree = "<group>"; };
 		9241F448239BB4BA002EA824 /* PautaTableViewHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PautaTableViewHeader.swift; sourceTree = "<group>"; };
@@ -174,6 +180,16 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		920DF8FC239E93CA001CCB3C /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				920DF8FD239E93E1001CCB3C /* ProfileViewController.swift */,
+				920DF8FF239E93EE001CCB3C /* ProfileViewModel.swift */,
+				920DF901239E93F9001CCB3C /* ProfileView.swift */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
 		9232BA5F239E8B15008168CC /* Controller */ = {
 			isa = PBXGroup;
 			children = (
@@ -256,6 +272,7 @@
 		924DE2DD239401E800F5D823 /* Features */ = {
 			isa = PBXGroup;
 			children = (
+				920DF8FC239E93CA001CCB3C /* Profile */,
 				92824645239A9718008086C4 /* AddNewPauta */,
 				92D8F24C2397DAD60004B569 /* Settings */,
 				92D8F23B239592580004B569 /* Pautas */,
@@ -685,7 +702,9 @@
 				92D8F21D2394A6A80004B569 /* CoreStack.swift in Sources */,
 				92D8F21B2394A6730004B569 /* CoreDao.swift in Sources */,
 				924DE2B32393FE5100F5D823 /* UDSTest.xcdatamodeld in Sources */,
+				920DF902239E93F9001CCB3C /* ProfileView.swift in Sources */,
 				92D8F2352395830F0004B569 /* Pauta+CoreDataClass.swift in Sources */,
+				920DF900239E93EE001CCB3C /* ProfileViewModel.swift in Sources */,
 				92D8F25A23994FBA0004B569 /* RegisterView.swift in Sources */,
 				9282463F239A7EC2008086C4 /* PautasViewModel.swift in Sources */,
 				924DE2DF239404A100F5D823 /* CustomTabBarController.swift in Sources */,
@@ -708,6 +727,7 @@
 				92D8F2362395830F0004B569 /* Pauta+CoreDataProperties.swift in Sources */,
 				92D8F2402396A37D0004B569 /* LoginView.swift in Sources */,
 				92D8F23A239587F00004B569 /* FireAccess.swift in Sources */,
+				920DF8FE239E93E1001CCB3C /* ProfileViewController.swift in Sources */,
 				92824641239A7F04008086C4 /* PautasView.swift in Sources */,
 				92D8F2512397DB800004B569 /* SettingsView.swift in Sources */,
 			);

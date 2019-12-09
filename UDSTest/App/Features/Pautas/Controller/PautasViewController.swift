@@ -30,7 +30,7 @@ class PautasViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = .blue
+        self.view.backgroundColor = .white
         setupNavigation()
     }
     

@@ -23,6 +23,8 @@ class SettingsViewController: UIViewController {
     
     func didTapInOption(settingOption: SettingsOptions) {
         switch settingOption {
+        case .Perfil:
+            navigationController?.pushViewController(ProfileViewController(), animated: true)
         case .Logout:
             FireAccess.logout()
             present(logoutAlertController(), animated: true, completion: nil)

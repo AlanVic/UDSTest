@@ -33,6 +33,14 @@ struct FireAccess {
             return ""
         }
     }
+
+    static func currentEmail() -> String {
+        if isLogged() {
+            return Auth.auth().currentUser?.email ?? ""
+        } else {
+            return ""
+        }
+    }
     
     static func logout() {
         do {

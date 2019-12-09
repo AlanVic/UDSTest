@@ -44,7 +44,7 @@ class RegisterView: UIView, ConfigurableView {
         return button
     }()
     
-    var didTapInRegister: (() -> Void)?
+    var didTapInRegister: ((Bool) -> Void)?
     var dismissController: (() -> Void)? 
     
     let viewModel = RegisterVIewModel()
@@ -63,10 +63,10 @@ class RegisterView: UIView, ConfigurableView {
     @objc func didTapInRegisterButton() {
         viewModel.signUpUser(withEmail: emailTextField.text!, andPassword: passwordTextField.text!, andUserName: nameTextField.text!) { [weak self] (error) in
             if error != nil {
-                print("Erro na criação da conta: \(error!)")
+                self?.didTapInRegister?(false)
                 return
             } else {
-                self?.didTapInRegister?()
+                self?.didTapInRegister?(true)
             }
         }
     }

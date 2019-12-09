@@ -23,17 +23,32 @@ class RegisterViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        registerView.didTapInRegister = {
-            self.dismiss(animated: true, completion: nil)
-        }
+        registerView.didTapInRegister = registerAccount
         
         registerView.dismissController = {
             self.dismiss(animated: true, completion: nil)
         }
     }
     
+    func registerAccount(result: Bool) {
+        switch result {
+         case true:
+             self.dismiss(animated: true, completion: nil)
+         case false:
+             presentAlertError()
+         }
+    }
+    
     override func loadView() {
         self.view = registerView
     }
 
+    func presentAlertError() {
+        let alert = UIAlertController(title: "Erro", message: "Erro ao registrar uma conta, tente novamente", preferredStyle: .alert)
+        let button = UIAlertAction(title: "Ok", style: .default) { _ in
+            alert.dismiss(animated: true, completion: nil)
+        }
+        alert.addAction(button)
+        self.present(alert, animated: true, completion: nil)
+    }
 }

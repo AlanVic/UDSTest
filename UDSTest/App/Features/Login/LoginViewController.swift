@@ -36,7 +36,7 @@ class LoginViewController: UIViewController {
         case true:
             self.dismiss(animated: true, completion: nil)
         case false:
-            print("nem deu")
+            presentAlertError()
         }
     }
     
@@ -44,4 +44,12 @@ class LoginViewController: UIViewController {
         present(RegisterViewController(), animated: true, completion: nil)
     }
 
+    func presentAlertError() {
+        let alert = UIAlertController(title: "Erro", message: "Erro ao fazer login", preferredStyle: .alert)
+        let button = UIAlertAction(title: "Ok", style: .default) { _ in
+            alert.dismiss(animated: true, completion: nil)
+        }
+        alert.addAction(button)
+        self.present(alert, animated: true, completion: nil)
+    }
 }

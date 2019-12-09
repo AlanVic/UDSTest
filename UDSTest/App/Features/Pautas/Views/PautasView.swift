@@ -109,9 +109,9 @@ extension PautasView: UITableViewDelegate, UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "detailCell", for: indexPath) as? PautaTableViewCell else {
             return UITableViewCell()
         }
+        cell.type = self.typePautasView
         let vm = viewModel.cellViewModel(toSection: indexPath.section)
         cell.setupView(cellViewModel: vm)
-        cell.type = self.typePautasView
         cell.delegate = self
         cell.actionButton.tag = indexPath.section
         return cell
@@ -126,9 +126,13 @@ extension PautasView: UITableViewDelegate, UITableViewDataSource {
 extension PautasView: PautaViewDelegate {
     func didTapActionButton(button: UIButton) {
         let section = button.tag
-        viewModel.changeStatus(atSection: section) { [weak self] in
-            self?.viewModel.pautas.remove(at: section)
-            self?.tableView.deleteSections(IndexSet(integer: section), with: .none)
+        viewModel.changeStatus(atSection: section) { [weak self] (error) in
+            if error != nil {
+                return
+            } else {
+                self?.viewModel.pautas.remove(at: section)
+                self?.tableView.deleteSections(IndexSet(integer: section), with: .none)
+            }
         }
     }
 }

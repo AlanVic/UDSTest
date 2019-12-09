@@ -23,7 +23,7 @@ class PautasAbertasViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        pautasView.viewModel.fetchData()
+//        pautasView.viewModel.fetchData()
     }
     
     func setupNavigation(){

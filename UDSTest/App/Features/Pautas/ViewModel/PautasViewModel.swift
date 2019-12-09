@@ -52,11 +52,15 @@ class PautasViewModel {
         return pautaCell
     }
     
-    func changeStatus(atSection section:Int, completion: @escaping () -> Void) {
+    func changeStatus(atSection section:Int, completion: @escaping (Error?) -> Void) {
         let pautaCell = pautas[section]
         if let pauta = pautaCell.pauta, let status = TypePautas(rawValue: pauta.status) {
-            updatePauta(pauta: pautaCell, withStatus: status) {
-                completion()
+            updatePauta(pauta: pautaCell, withStatus: status.oppositeValue()) { (error) in
+                if let error = error{
+                    completion(error)
+                }else {
+                    completion(nil)
+                }
             }
         }
     }
@@ -87,13 +91,14 @@ class PautasViewModel {
         return IndexPath(row: 0, section: onlyIndex)
     }
     
-    private func updatePauta(pauta: PautaCellViewModel, withStatus status: TypePautas, completion: @escaping () -> Void) {
+    private func updatePauta(pauta: PautaCellViewModel, withStatus status: TypePautas, completion: @escaping (Error?) -> Void) {
         if let pauta = pauta.pauta {
             colRef.document(pauta.uuid).updateData(["status" : status.rawValue]) { (error) in
                 if let error = error {
                     print("Error getting documents: \(error)")
+                    completion(error)
                 } else {
-                   completion()
+                   completion(nil)
                 }
             }
         }

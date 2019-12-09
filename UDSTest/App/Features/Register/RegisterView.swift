@@ -36,7 +36,16 @@ class RegisterView: UIView, ConfigurableView {
         return button
     }()
     
+    let haveAccountButton: UIButton = {
+        let button  = UIButton(type: .system)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.setTitle("Já tenho conta", for: .normal)
+        button.addTarget(self, action: #selector(didTapHaveAccount), for: .touchDown)
+        return button
+    }()
+    
     var didTapInRegister: (() -> Void)?
+    var dismissController: (() -> Void)? 
     
     let viewModel = RegisterVIewModel()
     
@@ -62,9 +71,13 @@ class RegisterView: UIView, ConfigurableView {
         }
     }
     
+    @objc func didTapHaveAccount() {
+        dismissController?()
+    }
+    
     
     func buildViewHierarchy() {
-        addSubviews([nameTextField, emailTextField, passwordTextField, registerButton])
+        addSubviews([nameTextField, emailTextField, passwordTextField, registerButton, haveAccountButton])
     }
     
     func setupConstraints() {
@@ -87,7 +100,10 @@ class RegisterView: UIView, ConfigurableView {
             registerButton.topAnchor.constraint(equalTo: passwordTextField.bottomAnchor, constant: 16),
             registerButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 32),
             registerButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -32),
-            registerButton.heightAnchor.constraint(equalToConstant: 40)
+            registerButton.heightAnchor.constraint(equalToConstant: 40),
+            
+            haveAccountButton.topAnchor.constraint(equalTo: registerButton.bottomAnchor, constant: 16),
+            haveAccountButton.centerXAnchor.constraint(equalTo: centerXAnchor)
         ])
     }
 }

@@ -26,6 +26,10 @@ class RegisterViewController: UIViewController {
         registerView.didTapInRegister = {
             self.dismiss(animated: true, completion: nil)
         }
+        
+        registerView.dismissController = {
+            self.dismiss(animated: true, completion: nil)
+        }
     }
     
     override func loadView() {

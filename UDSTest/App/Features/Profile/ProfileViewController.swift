@@ -22,6 +22,6 @@ class ProfileViewController: UIViewController {
     }
     
     func setupNavigation() {
-        title = "Configurações"
+        title = "Perfil"
     }
 }

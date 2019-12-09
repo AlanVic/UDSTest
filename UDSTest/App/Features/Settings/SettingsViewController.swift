@@ -21,6 +21,10 @@ class SettingsViewController: UIViewController {
         self.view = settingsView
     }
     
+    func setupNavigation() {
+        title = "Configurações"
+    }
+    
     func didTapInOption(settingOption: SettingsOptions) {
         switch settingOption {
         case .Perfil:
